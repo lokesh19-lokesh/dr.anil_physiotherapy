@@ -2850,7 +2850,6 @@ a:hover {
   display: block;
   margin: 0 auto;
   margin-bottom: 0;
-  vertical-align: bottom;
   filter: drop-shadow(0 14px 26px rgba(15, 45, 74, 0.12));
   transition: transform 0.35s ease;
 }
