@@ -473,7 +473,20 @@ a:hover {
   width: 100%;
 }
 
-.hero-slide-bg-1 {
+/* Ken Burns Subtle Cinematic Zoom Layer */
+.hero-cinematic-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.hero-slide-bg-1::before {
   background: 
     linear-gradient(
       90deg, 
@@ -485,7 +498,7 @@ a:hover {
     url('../assets/images/hero-flexra.jpg') no-repeat right 30% / cover;
 }
 
-.hero-slide-bg-2 {
+.hero-slide-bg-2::before {
   background: 
     linear-gradient(
       90deg, 
@@ -497,7 +510,7 @@ a:hover {
     url('../assets/images/hero-slide-2.jpg') no-repeat right center / cover;
 }
 
-.hero-slide-bg-3 {
+.hero-slide-bg-3::before {
   background: 
     linear-gradient(
       90deg, 
@@ -509,7 +522,11 @@ a:hover {
     url('../assets/images/hero-slide-3.jpg') no-repeat right center / cover;
 }
 
-/* Indicators (Glass Pill Indicators) */
+.carousel-item.active .hero-cinematic-card::before {
+  transform: scale(1.055);
+}
+
+/* Indicators (Glass Pill Indicators with Animated Timer Fill) */
 .hero-carousel-indicators {
   position: absolute;
   bottom: 24px;
@@ -518,32 +535,46 @@ a:hover {
   margin: 0;
   display: flex;
   gap: 10px;
-  z-index: 15;
+  z-index: 16;
   padding: 6px 14px;
-  background: rgba(8, 24, 40, 0.48);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(8, 24, 40, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .hero-carousel-indicators button {
+  position: relative;
+  overflow: hidden;
   width: 26px;
   height: 6px;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.35);
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0.6;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+  opacity: 0.65;
 }
 
 .hero-carousel-indicators button.active {
-  width: 46px;
-  background-color: #2DD4BF;
+  width: 48px;
+  background-color: rgba(255, 255, 255, 0.22);
   opacity: 1;
-  box-shadow: 0 0 12px rgba(45, 212, 191, 0.7);
+}
+
+.hero-carousel-indicators button.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #2DD4BF, #5EEAD4);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.8);
+  animation: indicatorProgress 6.5s linear forwards;
 }
 
 /* Next / Prev Controls */
@@ -771,6 +802,148 @@ a:hover {
   font-weight: 500;
 }
 
+/* ==========================================================================
+   CINEMATIC HERO STAGGER & MICRO-ANIMATIONS
+   ========================================================================== */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPillPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(45, 212, 191, 0));
+  }
+  50% {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.85));
+  }
+}
+
+@keyframes barGrow {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 32px;
+    opacity: 1;
+  }
+}
+
+@keyframes buttonLightSweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Staggered Entrance on Active Carousel Slide */
+.carousel-item.active .hero-eyebrow-pill {
+  animation: heroPillPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.carousel-item.active .hero-cinematic-title {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+}
+
+.carousel-item.active .hero-cinematic-desc {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
+}
+
+.carousel-item.active .hero-cinematic-actions {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.carousel-item.active .hero-cinematic-trust-strip {
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.64s both;
+}
+
+.carousel-item.active .cinematic-trust-bar {
+  animation: barGrow 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.74s both;
+}
+
+/* Eyebrow Icon Pulse */
+.hero-eyebrow-pill i {
+  color: #2DD4BF;
+  font-size: 0.9rem;
+  display: inline-block;
+  animation: iconPulse 2.8s ease-in-out infinite;
+}
+
+/* Primary CTA Button Light Sweep */
+.btn-cinematic-white {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cinematic-white::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+.btn-cinematic-white:hover::before {
+  animation: buttonLightSweep 0.85s ease-out;
+}
+
+/* Trust item hover interaction */
+.cinematic-trust-item {
+  transition: transform 0.25s ease;
+}
+
+.cinematic-trust-item:hover {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinematic-card::before,
+  .carousel-item.active .hero-eyebrow-pill,
+  .carousel-item.active .hero-cinematic-title,
+  .carousel-item.active .hero-cinematic-desc,
+  .carousel-item.active .hero-cinematic-actions,
+  .carousel-item.active .hero-cinematic-trust-strip,
+  .carousel-item.active .cinematic-trust-bar,
+  .hero-carousel-indicators button.active::after,
+  .hero-eyebrow-pill i {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
 /* Secondary Pages Hero Wrapper (Clean Standard Banner) */
 .hero-wrapper {
   position: relative;
@@ -868,15 +1041,15 @@ a:hover {
     border-radius: 24px;
   }
 
-  .hero-slide-bg-1,
-  .hero-slide-bg-2,
-  .hero-slide-bg-3 {
+  .hero-slide-bg-1::before,
+  .hero-slide-bg-2::before,
+  .hero-slide-bg-3::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center right;
   }
 
-  .hero-slide-bg-1 {
+  .hero-slide-bg-1::before {
     background-image: 
       linear-gradient(
         180deg, 
@@ -887,7 +1060,7 @@ a:hover {
       url('../assets/images/hero-flexra.jpg');
   }
 
-  .hero-slide-bg-2 {
+  .hero-slide-bg-2::before {
     background-image: 
       linear-gradient(
         180deg, 
@@ -898,7 +1071,7 @@ a:hover {
       url('../assets/images/hero-slide-2.jpg');
   }
 
-  .hero-slide-bg-3 {
+  .hero-slide-bg-3::before {
     background-image: 
       linear-gradient(
         180deg, 
@@ -1700,3 +1873,705 @@ a:hover {
     box-shadow: var(--shadow-subtle);
   }
 }
+
+/* ==========================================================================
+   PATIENT-FIRST PRINCIPLES (VIDEO SHOWCASE & VIDEO BACKGROUND)
+   ========================================================================== */
+.principles-video-section {
+  background-color: #051424;
+  color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Background Ambient Video Layer */
+.principles-bg-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.principles-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.18);
+  object-fit: cover;
+  opacity: 0.24;
+  filter: blur(20px) saturate(1.25);
+}
+
+.principles-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 45%, rgba(15, 45, 74, 0.55) 0%, rgba(6, 20, 36, 0.88) 55%, rgba(3, 10, 18, 0.97) 100%);
+}
+
+/* Video Showcase Card on Left */
+.principles-video-card {
+  position: relative;
+  background: linear-gradient(155deg, rgba(16, 42, 68, 0.75) 0%, rgba(5, 17, 30, 0.92) 100%);
+  border: 1.5px solid rgba(78, 205, 196, 0.32);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 40px rgba(37, 112, 112, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  height: 100%;
+  min-height: 520px;
+}
+
+.principles-video-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(78, 205, 196, 0.65);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.55), 0 0 55px rgba(78, 205, 196, 0.35);
+}
+
+.principles-video-media-wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.principles-showcase-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 520px;
+  max-height: 560px;
+}
+
+.principles-video-media-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(5, 17, 30, 0.6) 0%, transparent 22%, transparent 68%, rgba(3, 10, 18, 0.94) 100%);
+  pointer-events: none;
+}
+
+/* Floating Badges & Captions on Video */
+.principles-video-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 3;
+  background: rgba(8, 26, 45, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(78, 205, 196, 0.45);
+  color: #e2f8f7;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.badge-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00d2b4;
+  box-shadow: 0 0 8px #00d2b4;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.75;
+    box-shadow: 0 0 4px #00d2b4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 14px #00d2b4;
+  }
+}
+
+.principles-video-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.6rem;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 14, 25, 0.85) 35%, rgba(2, 8, 15, 0.98) 100%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.caption-icon-pill {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(37, 112, 112, 0.35);
+  border: 1px solid rgba(78, 205, 196, 0.45);
+  color: #4ecdc4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.caption-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.caption-sub {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* Dark Eyebrow Badge */
+.eyebrow-badge-dark {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f7dfb9;
+  border: 1.5px solid rgba(198, 159, 104, 0.4);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.eyebrow-badge-dark i {
+  color: #4ecdc4;
+}
+
+.principles-heading {
+  font-size: clamp(2rem, 3vw, 2.65rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.principles-lead-text {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.68;
+}
+
+/* 2x2 Glassmorphic Cards */
+.principles-glass-card {
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.85rem 1.6rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.principles-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.principles-glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(78, 205, 196, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 25px rgba(37, 112, 112, 0.2);
+}
+
+.principles-glass-card:hover::before {
+  opacity: 1;
+}
+
+.principles-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(37, 112, 112, 0.24);
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  color: #4ecdc4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  margin-bottom: 1.2rem;
+  transition: var(--transition-smooth);
+}
+
+.principles-glass-card:hover .principles-card-icon {
+  background: var(--color-soft-teal);
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(37, 112, 112, 0.45);
+}
+
+.principles-card-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.principles-card-desc {
+  font-size: 0.93rem;
+  color: #cbd5e1;
+  line-height: 1.62;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments for Principles Section */
+@media (max-width: 991.98px) {
+  .principles-video-section {
+    padding: 4.5rem 0;
+  }
+
+  .principles-video-card {
+    min-height: auto;
+    max-width: 480px;
+    margin: 0 auto 2.5rem auto;
+  }
+
+  .principles-showcase-video {
+    min-height: 380px;
+    max-height: 440px;
+  }
+
+  .principles-content-header {
+    text-align: center;
+  }
+
+  .principles-lead-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .principles-video-section {
+    padding: 3.5rem 0;
+  }
+
+  .principles-video-card {
+    border-radius: 18px;
+  }
+
+  .principles-showcase-video {
+    min-height: 320px;
+    max-height: 360px;
+  }
+
+  .principles-video-caption {
+    padding: 1rem 1.15rem;
+  }
+
+  .caption-icon-pill {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+  }
+
+  .caption-title {
+    font-size: 0.95rem;
+  }
+
+  .caption-sub {
+    font-size: 0.78rem;
+  }
+
+  .principles-glass-card {
+    padding: 1.4rem 1.25rem;
+    border-radius: 16px;
+  }
+}
+
+/* ==========================================================================
+   THE CLINICAL DIFFERENCE (VIDEO SHOWCASE RIGHT & VIDEO BACKGROUND)
+   ========================================================================== */
+.clinical-difference-section {
+  background-color: #060a16;
+  color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Background Ambient Video Layer */
+.clinical-bg-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.clinical-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.18);
+  object-fit: cover;
+  opacity: 0.22;
+  filter: blur(22px) saturate(1.3);
+}
+
+.clinical-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 75% 42%, rgba(68, 20, 95, 0.45) 0%, rgba(10, 18, 36, 0.88) 55%, rgba(4, 8, 16, 0.97) 100%);
+}
+
+/* Video Showcase Card on Right */
+.clinical-video-card {
+  position: relative;
+  background: linear-gradient(155deg, rgba(32, 16, 52, 0.75) 0%, rgba(6, 12, 26, 0.92) 100%);
+  border: 1.5px solid rgba(168, 85, 247, 0.35);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.22);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  height: 100%;
+  min-height: 540px;
+}
+
+.clinical-video-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.65);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.6), 0 0 55px rgba(168, 85, 247, 0.38);
+}
+
+.clinical-video-media-wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.clinical-showcase-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 540px;
+  max-height: 600px;
+}
+
+.clinical-video-media-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(6, 12, 26, 0.6) 0%, transparent 22%, transparent 68%, rgba(4, 7, 16, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Floating Badges & Captions on Video */
+.clinical-video-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 3;
+  background: rgba(18, 10, 32, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  color: #fae8ff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.badge-pulse-dot-violet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c084fc;
+  box-shadow: 0 0 8px #c084fc;
+  animation: pulseGlowViolet 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlowViolet {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.75;
+    box-shadow: 0 0 4px #c084fc;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 14px #c084fc;
+  }
+}
+
+.clinical-video-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.6rem;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent 0%, rgba(8, 10, 24, 0.85) 35%, rgba(4, 6, 15, 0.98) 100%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.caption-icon-pill-violet {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.25);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  color: #d8b4fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.clinical-heading {
+  font-size: clamp(2rem, 2.8vw, 2.6rem);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+.clinical-lead-text {
+  color: #cbd5e1;
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+/* Feature Cards on Left */
+.clinical-diff-card {
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.clinical-diff-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.6), rgba(56, 189, 248, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.clinical-diff-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35), 0 0 22px rgba(168, 85, 247, 0.22);
+}
+
+.clinical-diff-card:hover::before {
+  opacity: 1;
+}
+
+.clinical-diff-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.clinical-diff-card:hover .clinical-diff-icon {
+  background: #9333ea;
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.4);
+}
+
+.clinical-diff-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+}
+
+.clinical-diff-desc {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.58;
+  margin-bottom: 0;
+}
+
+/* Clinical CTA Button */
+.btn-clinical-cta {
+  background: linear-gradient(135deg, #257070 0%, #1e5c5c 100%);
+  color: #ffffff;
+  border: 1.5px solid rgba(78, 205, 196, 0.45);
+  padding: 0.82rem 1.9rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.98rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 6px 22px rgba(37, 112, 112, 0.35);
+  text-decoration: none;
+}
+
+.btn-clinical-cta:hover {
+  background: linear-gradient(135deg, #2d8585 0%, #257070 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37, 112, 112, 0.5), 0 0 20px rgba(78, 205, 196, 0.3);
+}
+
+/* Responsive adjustments for Clinical Difference Section */
+@media (max-width: 991.98px) {
+  .clinical-difference-section {
+    padding: 4.5rem 0;
+  }
+
+  .clinical-video-card {
+    min-height: auto;
+    max-width: 480px;
+    margin: 2rem auto 0 auto;
+  }
+
+  .clinical-showcase-video {
+    min-height: 380px;
+    max-height: 440px;
+  }
+
+  .clinical-content-header {
+    text-align: center;
+  }
+
+  .clinical-lead-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .clinical-cta-wrapper {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .clinical-difference-section {
+    padding: 3.5rem 0;
+  }
+
+  .clinical-video-card {
+    border-radius: 18px;
+  }
+
+  .clinical-showcase-video {
+    min-height: 320px;
+    max-height: 360px;
+  }
+
+  .clinical-video-caption {
+    padding: 1rem 1.15rem;
+  }
+
+  .caption-icon-pill-violet {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+  }
+
+  .clinical-diff-card {
+    padding: 1.3rem 1.2rem;
+    border-radius: 16px;
+  }
+}
+
+

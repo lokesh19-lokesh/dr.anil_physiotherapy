@@ -443,58 +443,113 @@
     </section>
 
     <!-- ==========================================================================
-         TRUST SECTION
+         PATIENT-FIRST PRINCIPLES (VIDEO SHOWCASE & AMBIENT VIDEO BACKGROUND)
          ========================================================================== -->
-    <section class="section-padding bg-off-white" aria-labelledby="trust-heading">
-      <div class="container">
-        <div class="text-center section-header">
-          <div class="eyebrow-badge">
-            <i class="bi bi-heart"></i> PATIENT-FIRST PRINCIPLES
+    <section class="section-padding principles-video-section position-relative overflow-hidden" aria-labelledby="trust-heading">
+      <!-- Background Ambient Video Layer -->
+      <div class="principles-bg-video-container" aria-hidden="true">
+        <video class="principles-bg-video" autoplay loop muted playsinline>
+          <source src="assets/videos/982492e0cb2a9faf0a659f9a639e6af6_t4.mp4" type="video/mp4">
+        </video>
+        <div class="principles-bg-overlay"></div>
+      </div>
+
+      <div class="container position-relative" style="z-index: 2;">
+        <!-- Mobile/Tablet Header (Visible on screens < 992px) -->
+        <div class="principles-content-header text-center mb-4 d-block d-lg-none">
+          <div class="eyebrow-badge eyebrow-badge-dark">
+            <i class="bi bi-heart-pulse"></i> PATIENT-FIRST PRINCIPLES
           </div>
-          <h2 id="trust-heading" class="fw-bold mb-3">Your journey to better movement starts here.</h2>
-          <p class="text-muted-custom">
+          <h2 class="principles-heading fw-bold mb-3 text-white">
+            Your journey to better movement starts here.
+          </h2>
+          <p class="principles-lead-text mx-auto">
             We believe sustainable recovery begins with listening. At Dr. Anil's Physiotherapy clinic, our care is guided by clinical precision, patient empowerment, and supportive rehabilitation.
           </p>
         </div>
 
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="clinic-card text-center">
-              <div class="card-icon-box mx-auto">
-                <i class="bi bi-person-heart"></i>
+        <div class="row align-items-center g-4 g-xl-5">
+          <!-- LEFT: Video Showcase -->
+          <div class="col-lg-5">
+            <div class="principles-video-card">
+              <div class="principles-video-badge">
+                <span class="badge-pulse-dot"></span>
+                <span>3D Biomechanical Motion</span>
               </div>
-              <h3>Patient-Centered Care</h3>
-              <p>Every session prioritizes your comfort, daily routine, and personal goals, creating a trusting and collaborative partnership.</p>
+              <div class="principles-video-media-wrapper">
+                <video class="principles-showcase-video" autoplay loop muted playsinline>
+                  <source src="assets/videos/982492e0cb2a9faf0a659f9a639e6af6_t4.mp4" type="video/mp4">
+                </video>
+                <div class="principles-video-media-glow"></div>
+              </div>
+              <div class="principles-video-caption">
+                <div class="caption-icon-pill">
+                  <i class="bi bi-activity"></i>
+                </div>
+                <div>
+                  <h4 class="caption-title">Targeted Joint & Motion Care</h4>
+                  <p class="caption-sub">Scientific analysis identifying root causes of pain</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="clinic-card text-center">
-              <div class="card-icon-box mx-auto">
-                <i class="bi bi-clipboard2-pulse"></i>
+          <!-- RIGHT: Desktop Content & 2x2 Glass Cards -->
+          <div class="col-lg-7">
+            <!-- Desktop Header (Visible on screens >= 992px) -->
+            <div class="principles-content-header mb-4 d-none d-lg-block">
+              <div class="eyebrow-badge eyebrow-badge-dark">
+                <i class="bi bi-heart-pulse"></i> PATIENT-FIRST PRINCIPLES
               </div>
-              <h3>Personalized Plans</h3>
-              <p>Tailored rehabilitation regimens designed specifically around your movement patterns, history, and recovery pace.</p>
+              <h2 id="trust-heading" class="principles-heading fw-bold mb-3 text-white">
+                Your journey to better movement starts here.
+              </h2>
+              <p class="principles-lead-text">
+                We believe sustainable recovery begins with listening. At Dr. Anil's Physiotherapy clinic, our care is guided by clinical precision, patient empowerment, and supportive rehabilitation.
+              </p>
             </div>
-          </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="clinic-card text-center">
-              <div class="card-icon-box mx-auto">
-                <i class="bi bi-hospital"></i>
+            <!-- 2x2 Grid of Cards -->
+            <div class="row g-3 g-md-4">
+              <div class="col-sm-6">
+                <div class="principles-glass-card">
+                  <div class="principles-card-icon">
+                    <i class="bi bi-person-heart"></i>
+                  </div>
+                  <h3 class="principles-card-title">Patient-Centered Care</h3>
+                  <p class="principles-card-desc">Every session prioritizes your comfort, daily routine, and personal goals, creating a trusting and collaborative partnership.</p>
+                </div>
               </div>
-              <h3>Professional Clinical Space</h3>
-              <p>A tranquil, clean, and well-equipped clinical environment located conveniently in Miyapur for relaxed rehabilitation.</p>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="clinic-card text-center">
-              <div class="card-icon-box mx-auto">
-                <i class="bi bi-arrow-up-right-circle"></i>
+              <div class="col-sm-6">
+                <div class="principles-glass-card">
+                  <div class="principles-card-icon">
+                    <i class="bi bi-clipboard2-pulse"></i>
+                  </div>
+                  <h3 class="principles-card-title">Personalized Plans</h3>
+                  <p class="principles-card-desc">Tailored rehabilitation regimens designed specifically around your movement patterns, history, and recovery pace.</p>
+                </div>
               </div>
-              <h3>Supportive Recovery</h3>
-              <p>Step-by-step guidance, home exercise instruction, and posture awareness to support long-term physical wellbeing.</p>
+
+              <div class="col-sm-6">
+                <div class="principles-glass-card">
+                  <div class="principles-card-icon">
+                    <i class="bi bi-hospital"></i>
+                  </div>
+                  <h3 class="principles-card-title">Professional Clinical Space</h3>
+                  <p class="principles-card-desc">A tranquil, clean, and well-equipped clinical environment located conveniently in Miyapur for relaxed rehabilitation.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="principles-glass-card">
+                  <div class="principles-card-icon">
+                    <i class="bi bi-arrow-up-right-circle"></i>
+                  </div>
+                  <h3 class="principles-card-title">Supportive Recovery</h3>
+                  <p class="principles-card-desc">Step-by-step guidance, home exercise instruction, and posture awareness to support long-term physical wellbeing.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -612,56 +667,121 @@
     <!-- ==========================================================================
          WHY CHOOSE US (4 Feature Cards)
          ========================================================================== -->
-    <section class="section-padding bg-off-white" aria-labelledby="why-heading">
-      <div class="container">
-        <div class="row align-items-center gy-5">
-          <div class="col-lg-5">
-            <div class="eyebrow-badge">
-              <i class="bi bi-star"></i> THE CLINICAL DIFFERENCE
-            </div>
-            <h2 id="why-heading" class="fw-bold mb-3">Why Patients Choose Dr. Anil's Clinic</h2>
-            <p class="lead mb-4">
-              We focus on thorough physical assessments and gentle, practical recovery plans that align with your lifestyle in Hyderabad.
-            </p>
-            <p class="text-muted-custom mb-4">
-              Rather than generic exercises or short-lived relief, our approach targets biomechanical causes and builds the strength needed to prevent recurring symptoms.
-            </p>
-            <a href="about.html" class="btn btn-navy">
-              Learn More About Us <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+    <!-- ==========================================================================
+         THE CLINICAL DIFFERENCE (VIDEO SHOWCASE RIGHT & AMBIENT VIDEO BACKGROUND)
+         ========================================================================== -->
+    <section class="section-padding clinical-difference-section position-relative overflow-hidden" aria-labelledby="why-heading">
+      <!-- Background Ambient Video Layer -->
+      <div class="clinical-bg-video-container" aria-hidden="true">
+        <video class="clinical-bg-video" autoplay loop muted playsinline>
+          <source src="assets/videos/v2.mp4" type="video/mp4">
+          <source src="assets/v2.mp4" type="video/mp4">
+        </video>
+        <div class="clinical-bg-overlay"></div>
+      </div>
 
+      <div class="container position-relative" style="z-index: 2;">
+        <!-- Mobile/Tablet Header (Visible on screens < 992px) -->
+        <div class="clinical-content-header text-center mb-4 d-block d-lg-none">
+          <div class="eyebrow-badge eyebrow-badge-dark">
+            <i class="bi bi-star text-warning"></i> THE CLINICAL DIFFERENCE
+          </div>
+          <h2 class="clinical-heading fw-bold mb-3 text-white">
+            Why Patients Choose Dr. Anil's Clinic
+          </h2>
+          <p class="clinical-lead-text mx-auto">
+            We focus on thorough physical assessments and gentle, practical recovery plans that align with your lifestyle in Hyderabad. Rather than generic exercises or short-lived relief, our approach targets biomechanical causes and builds the strength needed to prevent recurring symptoms.
+          </p>
+        </div>
+
+        <div class="row align-items-center g-4 g-xl-5">
+          <!-- LEFT: Content & 2x2 Glass Cards -->
           <div class="col-lg-7">
+            <!-- Desktop Header (Visible on screens >= 992px) -->
+            <div class="clinical-content-header mb-4 d-none d-lg-block">
+              <div class="eyebrow-badge eyebrow-badge-dark">
+                <i class="bi bi-star text-warning"></i> THE CLINICAL DIFFERENCE
+              </div>
+              <h2 id="why-heading" class="clinical-heading fw-bold mb-3 text-white">
+                Why Patients Choose Dr. Anil's Clinic
+              </h2>
+              <p class="clinical-lead-text mb-4">
+                We focus on thorough physical assessments and gentle, practical recovery plans that align with your lifestyle in Hyderabad. Rather than generic exercises or short-lived relief, our approach targets biomechanical causes and builds the strength needed to prevent recurring symptoms.
+              </p>
+            </div>
+
+            <!-- 2x2 Grid of Feature Cards -->
             <div class="row g-3">
               <div class="col-sm-6">
-                <div class="p-4 rounded-3 border bg-white h-100 shadow-sm">
-                  <div class="text-teal fs-3 mb-2"><i class="bi bi-sliders"></i></div>
-                  <h4 class="fw-bold fs-5 text-navy">Personalized Plans</h4>
-                  <p class="small text-muted-custom mb-0">Customized treatment roadmaps calibrated to your age, activity level, and specific pain presentation.</p>
+                <div class="clinical-diff-card">
+                  <div class="clinical-diff-icon">
+                    <i class="bi bi-sliders"></i>
+                  </div>
+                  <h3 class="clinical-diff-title">Personalized Plans</h3>
+                  <p class="clinical-diff-desc">Customized treatment roadmaps calibrated to your age, activity level, and specific pain presentation.</p>
                 </div>
               </div>
 
               <div class="col-sm-6">
-                <div class="p-4 rounded-3 border bg-white h-100 shadow-sm">
-                  <div class="text-teal fs-3 mb-2"><i class="bi bi-heart-pulse"></i></div>
-                  <h4 class="fw-bold fs-5 text-navy">Patient-Centered Care</h4>
-                  <p class="small text-muted-custom mb-0">Unrushed one-on-one attention with clear explanations of your condition at every step.</p>
+                <div class="clinical-diff-card">
+                  <div class="clinical-diff-icon">
+                    <i class="bi bi-heart-pulse"></i>
+                  </div>
+                  <h3 class="clinical-diff-title">Patient-Centered Care</h3>
+                  <p class="clinical-diff-desc">Unrushed one-on-one attention with clear explanations of your condition at every step.</p>
                 </div>
               </div>
 
               <div class="col-sm-6">
-                <div class="p-4 rounded-3 border bg-white h-100 shadow-sm">
-                  <div class="text-teal fs-3 mb-2"><i class="bi bi-journal-medical"></i></div>
-                  <h4 class="fw-bold fs-5 text-navy">Evidence-Informed Care</h4>
-                  <p class="small text-muted-custom mb-0">Modern clinical methods guided by established physiotherapy research and progressive active therapy.</p>
+                <div class="clinical-diff-card">
+                  <div class="clinical-diff-icon">
+                    <i class="bi bi-journal-medical"></i>
+                  </div>
+                  <h3 class="clinical-diff-title">Evidence-Informed Care</h3>
+                  <p class="clinical-diff-desc">Modern clinical methods guided by established physiotherapy research and progressive active therapy.</p>
                 </div>
               </div>
 
               <div class="col-sm-6">
-                <div class="p-4 rounded-3 border bg-white h-100 shadow-sm">
-                  <div class="text-teal fs-3 mb-2"><i class="bi bi-peace"></i></div>
-                  <h4 class="fw-bold fs-5 text-navy">Supportive Environment</h4>
-                  <p class="small text-muted-custom mb-0">A calming, positive clinical atmosphere designed to put you at ease during rehabilitation.</p>
+                <div class="clinical-diff-card">
+                  <div class="clinical-diff-icon">
+                    <i class="bi bi-peace"></i>
+                  </div>
+                  <h3 class="clinical-diff-title">Supportive Environment</h3>
+                  <p class="clinical-diff-desc">A calming, positive clinical atmosphere designed to put you at ease during rehabilitation.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="clinical-cta-wrapper mt-4 pt-2">
+              <a href="about.html" class="btn btn-clinical-cta">
+                Learn More About Us <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Video Showcase (v2.mp4) -->
+          <div class="col-lg-5">
+            <div class="clinical-video-card">
+              <div class="clinical-video-badge">
+                <span class="badge-pulse-dot-violet"></span>
+                <span>Neural & Spinal Precision</span>
+              </div>
+              <div class="clinical-video-media-wrapper">
+                <video class="clinical-showcase-video" autoplay loop muted playsinline>
+                  <source src="assets/videos/v2.mp4" type="video/mp4">
+                  <source src="assets/v2.mp4" type="video/mp4">
+                </video>
+                <div class="clinical-video-media-glow"></div>
+              </div>
+              <div class="clinical-video-caption">
+                <div class="caption-icon-pill-violet">
+                  <i class="bi bi-activity"></i>
+                </div>
+                <div>
+                  <h4 class="caption-title">Whole-Body Neural Alignment</h4>
+                  <p class="caption-sub">Targeting root neuromuscular pathways to relieve chronic pain</p>
                 </div>
               </div>
             </div>
