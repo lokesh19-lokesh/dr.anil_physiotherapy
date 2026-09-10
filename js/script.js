@@ -529,4 +529,71 @@ document.addEventListener('DOMContentLoaded', () => {
   if (blogGrid) {
     renderArticles();
   }
+
+  /* ==========================================================================
+     EXPERIENCE STATS NUMBER COUNTER ANIMATION
+     ========================================================================== */
+  const statsCard = document.querySelector('.experience-stats-card');
+  const statNumbers = document.querySelectorAll('.exp-stat-number[data-target]');
+
+  if (statNumbers.length > 0) {
+    let hasAnimated = false;
+
+    const animateNumber = (el) => {
+      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1800; // 1.8 seconds smooth count
+      const startTime = performance.now();
+
+      // Quartic ease-out: rapid acceleration then buttery smooth deceleration
+      const easeOutQuart = (x) => 1 - Math.pow(1 - x, 4);
+
+      const updateCounter = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.round(easeOutQuart(progress) * target);
+
+        el.textContent = current + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          el.textContent = target + suffix;
+        }
+      };
+
+      requestAnimationFrame(updateCounter);
+    };
+
+    const triggerAllCounters = () => {
+      if (hasAnimated) return;
+      hasAnimated = true;
+      statNumbers.forEach((el, index) => {
+        // Slight stagger for a lively feel
+        setTimeout(() => {
+          animateNumber(el);
+        }, index * 80);
+      });
+    };
+
+    if ('IntersectionObserver' in window && statsCard) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            triggerAllCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      observer.observe(statsCard);
+    } else {
+      // Fallback
+      triggerAllCounters();
+    }
+  }
 });
+
