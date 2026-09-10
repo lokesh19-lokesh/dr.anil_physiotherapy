@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateInput = document.getElementById('preferredDate');
     const timeInput = document.getElementById('preferredTime');
     const messageInput = document.getElementById('patientMessage');
-    const formFeedback = document.getElementById('formFeedbackAlert');
+    const formFeedback = document.getElementById('formFeedbackAlert') || document.getElementById('formFeedback');
 
     // Validation patterns
     const phoneRegex = /^[6-9]\d{9}$/; // Indian 10-digit mobile format
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Submit handler
-    appointmentForm.addEventListener('submit', (e) => {
+    appointmentForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       let formIsValid = true;
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Payload for tracking
+      // Payload for tracking & storage
       const formData = {
         name: nameInput ? nameInput.value.trim() : '',
         phone: cleanedPhone,
@@ -285,10 +285,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = document.getElementById('submitAppointmentBtn') || appointmentForm.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Confirming Appointment...';
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending Details...';
       }
 
       if (formFeedback) {
+        formFeedback.classList.remove('d-none');
         formFeedback.className = 'alert alert-success d-flex align-items-start gap-3 p-3 mt-4 border-0 shadow-sm';
         formFeedback.style.backgroundColor = '#EBF6F5';
         formFeedback.style.color = '#123B5D';
@@ -296,16 +297,94 @@ document.addEventListener('DOMContentLoaded', () => {
           <i class="bi bi-check-circle-fill text-teal fs-4"></i>
           <div>
             <h5 class="fw-bold mb-1" style="font-family: var(--font-heading);">Appointment Enquiry Received!</h5>
-            <p class="mb-0" style="font-size: 0.94rem;">Redirecting to confirmation page...</p>
+            <p class="mb-0" style="font-size: 0.94rem;">Delivering details to clinic & redirecting to confirmation...</p>
           </div>
         `;
       }
 
-      // Redirect to thank-you.html with details
-      const redirectUrl = `thank-you.html?name=${encodeURIComponent(formData.name)}&service=${encodeURIComponent(formData.service)}`;
-      setTimeout(() => {
-        window.location.href = redirectUrl;
-      }, 350);
+      // Deliver form data directly to dranilsphysio@gmail.com
+      const isLandingPage = window.location.pathname.toLowerCase().includes('physiotherapy_service');
+      const isFileProtocol = window.location.protocol === 'file:';
+
+      // Always ensure a valid email address is provided for _replyto to prevent mail server syntax rejection
+      const validReplyTo = (formData.email && emailRegex.test(formData.email)) ? formData.email : 'dranilsphysio@gmail.com';
+
+      // Update hidden _replyto input if present in the form
+      const replyToInput = appointmentForm.querySelector('input[name="_replyto"]');
+      if (replyToInput) {
+        replyToInput.value = validReplyTo;
+      }
+
+      // If browsing as a local file (file://), FormSubmit's AJAX endpoint blocks requests (Origin: null).
+      // Submitting via native HTML form POST works reliably and delivers the email directly!
+      if (isFileProtocol) {
+        appointmentForm.submit();
+        return;
+      }
+
+      // On Web Server (Localhost or Live Production Domain) via AJAX:
+      const emailPayload = {
+        _subject: isLandingPage
+          ? `New Priority Consultation: ${formData.name} (Google Ads Landing Page)`
+          : `New Appointment Request: ${formData.name} (Contact Page)`,
+        _template: 'table',
+        _captcha: 'false',
+        _replyto: validReplyTo,
+        'Patient Full Name': formData.name,
+        'Mobile / WhatsApp': formData.phone,
+        'Condition / Service Requested': formData.service,
+        'Preferred Date': formData.date || 'Not Specified',
+        'Preferred Time Slot': formData.time || 'Not Specified'
+      };
+
+      if (formData.email && emailRegex.test(formData.email)) {
+        emailPayload['Email Address'] = formData.email;
+      } else {
+        emailPayload['Patient Contact Email'] = 'Not Provided (Follow up via Phone/WhatsApp)';
+      }
+
+      if (messageInput && messageInput.value.trim()) {
+        emailPayload['Symptoms / Discomfort Notes'] = messageInput.value.trim();
+      }
+
+      emailPayload['Enquiry Source Page'] = isLandingPage
+        ? 'Google Ads PPC Landing Page (Physiotherapy_service.html)'
+        : 'Main Website Contact Page (contact.html)';
+      emailPayload['Submitted At (IST)'] = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4500);
+
+      let sendSucceeded = false;
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/dranilsphysio@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(emailPayload),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        const resData = await response.json().catch(() => ({}));
+        if (resData.success === 'true' || resData.success === true) {
+          sendSucceeded = true;
+        }
+      } catch (err) {
+        console.warn('AJAX email dispatch note:', err);
+      }
+
+      // If AJAX succeeded, redirect cleanly to thank-you page
+      if (sendSucceeded) {
+        const redirectUrl = `thank-you.html?name=${encodeURIComponent(formData.name)}&service=${encodeURIComponent(formData.service)}`;
+        setTimeout(() => {
+          window.location.href = redirectUrl;
+        }, 300);
+      } else {
+        // If AJAX failed (e.g. origin restriction or network timeout), fallback to native form submit!
+        appointmentForm.submit();
+      }
     });
   }
 

@@ -117,11 +117,11 @@ Dedicated campaign landing anchors on `services.html`:
 ## 5. Verified Information Placeholders
 
 To maintain strict healthcare compliance and prevent misinformation, unverified details are clearly labeled with bracketed placeholders:
-- Phone: `[ADD VERIFIED PHONE NUMBER]`
-- WhatsApp: `[ADD VERIFIED WHATSAPP NUMBER]`
-- Email: `[ADD VERIFIED EMAIL ADDRESS]`
-- Address: `[ADD VERIFIED CLINIC ADDRESS, MIYAPUR, HYDERABAD]`
-- Timings: `[ADD VERIFIED CLINIC TIMINGS]`
+- Phone: `+91 63037 38848` / `+91 96037 26028`
+- WhatsApp: `+91 96037 26028`
+- Email: `dranilsphysio@gmail.com`
+- Address: `Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet, Miyapur, Hyderabad, Telangana 500049`
+- Timings: `Mon - Sat: 10:00 AM - 1:00 PM, 5:00 PM - 9:00 PM (Sunday Closed)`
 - Doctor Qualifications: `[ADD VERIFIED QUALIFICATIONS]`
 - Experience: `[ADD VERIFIED EXPERIENCE]`
 - Professional Registration: `[ADD VERIFIED PROFESSIONAL REGISTRATION]`

@@ -78,6 +78,7 @@
         "@id": "https://dranilsphysiotherapy.com/#clinic",
         "name": "Dr. Anil's Physiotherapy and Pain Relief Clinic",
         "telephone": "+91 63037 38848",
+        "email": "dranilsphysio@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet",
@@ -268,6 +269,20 @@
                 </div>
               </div>
 
+              <!-- Email Item -->
+              <div class="contact-item">
+                <div class="contact-item-icon" style="color: #0F2D4A; background-color: rgba(15, 45, 74, 0.08);">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold text-navy mb-1">Email Enquiries</h6>
+                  <p class="text-muted-custom small mb-1">
+                    <a href="mailto:dranilsphysio@gmail.com" class="text-navy text-decoration-none fw-semibold">dranilsphysio@gmail.com</a>
+                  </p>
+                  <a href="mailto:dranilsphysio@gmail.com" class="small text-teal fw-semibold">Send Direct Email &rarr;</a>
+                </div>
+              </div>
+
               <!-- Timings Item -->
               <div class="contact-item mb-4">
                 <div class="contact-item-icon">
@@ -321,12 +336,20 @@
                 availability.
               </p>
 
-              <form id="appointmentForm" novalidate aria-label="Physiotherapy Appointment Form">
+              <form id="appointmentForm" action="https://formsubmit.co/dranilsphysio@gmail.com" method="POST" novalidate aria-label="Physiotherapy Appointment Form">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="New Appointment Request - Dr. Anil's Physiotherapy (Miyapur)">
+                <input type="hidden" name="_replyto" value="dranilsphysio@gmail.com">
+                <input type="hidden" name="_next" value="https://dranilsphysiotherapy.com/thank-you.html">
+                <input type="hidden" name="Source Page" value="Contact Page Booking Form">
+
                 <div class="row g-3">
                   <!-- Full Name -->
                   <div class="col-md-12">
                     <label for="fullName" class="form-label-custom">Full Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control form-control-custom" id="fullName"
+                    <input type="text" class="form-control form-control-custom" id="fullName" name="Full Name"
                       placeholder="e.g. Ramesh Kumar" required aria-required="true">
                     <div class="invalid-feedback-custom">Please enter your full name (minimum 2 letters).</div>
                   </div>
@@ -335,7 +358,7 @@
                   <div class="col-md-6">
                     <label for="phoneNumber" class="form-label-custom">Phone Number <span
                         class="text-danger">*</span></label>
-                    <input type="tel" class="form-control form-control-custom" id="phoneNumber"
+                    <input type="tel" class="form-control form-control-custom" id="phoneNumber" name="Phone Number"
                       placeholder="e.g. 9876543210" required aria-required="true">
                     <div class="invalid-feedback-custom">Please provide a valid 10-digit mobile number.</div>
                   </div>
@@ -344,7 +367,7 @@
                   <div class="col-md-6">
                     <label for="emailAddress" class="form-label-custom">Email Address <span
                         class="text-danger">*</span></label>
-                    <input type="email" class="form-control form-control-custom" id="emailAddress"
+                    <input type="email" class="form-control form-control-custom" id="emailAddress" name="Email Address"
                       placeholder="e.g. name@example.com" required aria-required="true">
                     <div class="invalid-feedback-custom">Please provide a valid email format.</div>
                   </div>
@@ -352,13 +375,13 @@
                   <!-- Preferred Date -->
                   <div class="col-md-6">
                     <label for="preferredDate" class="form-label-custom">Preferred Date</label>
-                    <input type="date" class="form-control form-control-custom" id="preferredDate">
+                    <input type="date" class="form-control form-control-custom" id="preferredDate" name="Preferred Date">
                   </div>
 
                   <!-- Preferred Time -->
                   <div class="col-md-6">
                     <label for="preferredTime" class="form-label-custom">Preferred Time Slot</label>
-                    <select class="form-select form-select-custom" id="preferredTime">
+                    <select class="form-select form-select-custom" id="preferredTime" name="Preferred Time Slot">
                       <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM &ndash; 12:00 PM)</option>
                       <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM &ndash; 4:00 PM)</option>
                       <option value="Evening (4:00 PM - 8:00 PM)" selected>Evening (4:00 PM &ndash; 8:00 PM)</option>
@@ -369,7 +392,7 @@
                   <div class="col-md-12">
                     <label for="serviceRequired" class="form-label-custom">Service / Treatment Focus <span
                         class="text-danger">*</span></label>
-                    <select class="form-select form-select-custom" id="serviceRequired" required aria-required="true">
+                    <select class="form-select form-select-custom" id="serviceRequired" name="Service Required" required aria-required="true">
                       <option value="" selected disabled>Select primary reason for consultation...</option>
                       <option value="Back & Neck Pain">Back &amp; Neck Pain</option>
                       <option value="Sports Injury Rehabilitation">Sports Injury Rehabilitation</option>
@@ -389,7 +412,7 @@
                   <div class="col-md-12">
                     <label for="patientMessage" class="form-label-custom">Describe Your Symptoms or Current
                       Discomfort</label>
-                    <textarea class="form-control form-control-custom" id="patientMessage" rows="3"
+                    <textarea class="form-control form-control-custom" id="patientMessage" name="Patient Message" rows="3"
                       placeholder="Please mention how long you have experienced symptoms, previous injuries, or specific movements that cause pain..."></textarea>
                   </div>
 
@@ -577,6 +600,11 @@
               <i class="bi bi-whatsapp text-sand"></i>
               <span>WhatsApp: <a href="https://wa.me/919603726028" target="_blank" rel="noopener noreferrer"
                   class="text-white text-decoration-none">+91 96037 26028</a></span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-envelope text-sand"></i>
+              <span>Email: <a href="mailto:dranilsphysio@gmail.com"
+                  class="text-white text-decoration-none">dranilsphysio@gmail.com</a></span>
             </div>
             <div class="d-flex align-items-center gap-2">
               <i class="bi bi-clock text-sand"></i>
