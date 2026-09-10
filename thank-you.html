@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Your Consultation Request | Dr. Anil's Physiotherapy Clinic</title>
+  <meta name="description" content="Thank you for scheduling your physiotherapy appointment with Dr. Anil's Physiotherapy and Pain Relief Clinic in Miyapur, Hyderabad. Here is what happens next.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap 5 CSS & Main Stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .thankyou-hero {
+      background: linear-gradient(180deg, #FAF8F5 0%, #FFFFFF 100%);
+      padding: 3.5rem 0 4.5rem 0;
+    }
+    .thankyou-check-circle {
+      width: 90px;
+      height: 90px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 3px solid rgba(16, 185, 129, 0.3);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      color: #059669;
+      margin-bottom: 1.5rem;
+      animation: pulseGreen 2s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+      70% { box-shadow: 0 0 0 16px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .thankyou-step-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border-subtle);
+      border-radius: 18px;
+      padding: 1.6rem 1.4rem;
+      height: 100%;
+      box-shadow: 0 8px 24px rgba(15, 45, 74, 0.04);
+      transition: var(--transition-smooth);
+    }
+    .thankyou-step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(15, 45, 74, 0.08);
+      border-color: var(--color-soft-teal);
+    }
+    .step-number-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-deep-navy);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement & Quick Contact Bar -->
+  <div class="top-announcement-bar d-none d-md-block">
+    <div class="container-fluid px-3 px-md-4 px-xl-5" style="max-width: 1720px;">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <span><i class="bi bi-geo-alt-fill text-sand me-1"></i> Miyapur, Hyderabad</span>
+          <span>&bull;</span>
+          <span><i class="bi bi-clock-fill text-sand me-1"></i> Mon &ndash; Sat: 10:00 AM &ndash; 1:00 PM, 5:00 PM &ndash; 9:00 PM</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="tel:+916303738848" class="fw-semibold"><i class="bi bi-telephone-fill text-teal me-1"></i> Call Desk: +91 63037 38848</a>
+          <a href="tel:+919603726028" class="fw-semibold d-none d-xl-inline"><i class="bi bi-telephone-fill text-teal me-1"></i> +91 96037 26028</a>
+          <a href="https://wa.me/919603726028?text=Hello%20Dr.%20Anil's%20Clinic,%20I%20would%20like%20to%20enquire%20about%20an%20appointment." target="_blank" rel="noopener noreferrer" class="badge text-white px-2 py-1" style="background-color: #25D366; text-decoration: none;"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Sticky Header -->
+  <header class="site-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-3" aria-label="Main Navigation">
+      <div class="container-fluid px-3 px-md-4 px-xl-5" style="max-width: 1720px;">
+        <!-- Clinic Logo / Wordmark -->
+        <a class="navbar-brand-custom" href="index.html">
+          <div class="brand-emblem">
+            <i class="bi bi-activity"></i>
+          </div>
+          <div class="brand-text-wrapper">
+            <span class="brand-title">Dr. Anil's</span>
+            <span class="brand-subtitle">Physiotherapy &amp; Pain Relief</span>
+          </div>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-navy"></i>
+        </button>
+
+        <!-- Navigation Links & Action CTA -->
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-1 my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          
+          <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
+            <a href="contact.html#book" class="btn btn-navy btn-book-cta w-100 w-lg-auto" data-placement="Header CTA">
+              <i class="bi bi-calendar-check"></i> Book an Appointment
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- CONFIRMATION HERO SECTION -->
+    <section class="thankyou-hero" aria-labelledby="thankyou-title">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <div class="thankyou-check-circle">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            
+            <h1 id="thankyou-title" class="display-4 fw-bold text-navy mb-3">
+              Thank You! Request Received
+            </h1>
+
+            <p class="lead text-muted-custom mb-4" id="confirmationText">
+              Your appointment request has been submitted successfully to Dr. Anil's Physiotherapy and Pain Relief Clinic desk in Miyapur.
+            </p>
+
+            <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-3 bg-white rounded-4 border shadow-sm mb-4">
+              <span class="badge px-3 py-2" style="background-color: #EBF6F5; color: #123B5D; font-size: 0.92rem;">
+                <i class="bi bi-clock-history me-1 text-teal"></i> Clinic Desk Callback: <strong>Within 2 Operating Hours</strong>
+              </span>
+              <span class="badge px-3 py-2" style="background-color: #F8FAFC; color: #0F2D4A; font-size: 0.92rem; border: 1px solid #E2E8F0;">
+                <i class="bi bi-geo-alt me-1 text-sand"></i> Miyapur &bull; Hafeezpet
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-STEP TIMELINE -->
+        <div class="row g-4 mt-2 justify-content-center">
+          <div class="col-md-4">
+            <div class="thankyou-step-card text-center">
+              <div class="step-number-badge">1</div>
+              <h5 class="fw-bold text-navy mb-2">Request Logged</h5>
+              <p class="text-muted-custom small mb-0">Our clinical coordination desk reviews your requested therapy focus and preferred timing.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="thankyou-step-card text-center">
+              <div class="step-number-badge" style="background: var(--color-soft-teal);">2</div>
+              <h5 class="fw-bold text-navy mb-2">Slot Confirmation</h5>
+              <p class="text-muted-custom small mb-0">We will call you or message you on WhatsApp to confirm your specific consultation slot.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="thankyou-step-card text-center">
+              <div class="step-number-badge" style="background: #059669;">3</div>
+              <h5 class="fw-bold text-navy mb-2">Clinical Evaluation</h5>
+              <p class="text-muted-custom small mb-0">Visit Dr. Anil's clinic in Miyapur for your thorough physical evaluation and targeted treatment.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAST-TRACK / DIRECT ASSISTANCE BOX -->
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-10">
+            <div class="p-4 p-md-5 rounded-4 shadow-sm border text-center text-md-start" style="background: linear-gradient(135deg, #0F2D4A 0%, #153E65 100%); color: #FFFFFF;">
+              <div class="row align-items-center g-4">
+                <div class="col-md-7">
+                  <div class="badge px-3 py-1 mb-2 text-white bg-teal" style="background-color: #257070;">DIRECT ACCESS</div>
+                  <h3 class="fw-bold mb-2 text-white font-heading">Need Immediate Confirmation?</h3>
+                  <p class="text-white-50 mb-0" style="font-size: 0.95rem; line-height: 1.7;">
+                    If you are experiencing acute pain or prefer to confirm your consultation slot immediately, connect with our desk directly via phone or WhatsApp.
+                  </p>
+                </div>
+                <div class="col-md-5">
+                  <div class="d-flex flex-column gap-2">
+                    <a href="tel:+916303738848" class="btn btn-teal text-white py-2 px-3 fw-bold rounded-pill text-center text-decoration-none">
+                      <i class="bi bi-telephone-fill me-2"></i> Call: +91 63037 38848
+                    </a>
+                    <a href="https://wa.me/919603726028?text=Hello%20Dr.%20Anil's%20Clinic,%20I%20have%20submitted%20an%20appointment%20request%20and%20would%20like%20quick%20confirmation." target="_blank" rel="noopener noreferrer" class="btn btn-success py-2 px-3 fw-bold rounded-pill text-center text-decoration-none" style="background-color: #25D366; border-color: #25D366;">
+                      <i class="bi bi-whatsapp me-2"></i> WhatsApp: +91 96037 26028
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLINIC LOCATION BOX -->
+        <div class="row justify-content-center mt-4">
+          <div class="col-lg-10">
+            <div class="p-4 rounded-4 border bg-white shadow-sm">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                <div>
+                  <h5 class="fw-bold text-navy mb-1"><i class="bi bi-geo-alt-fill text-sand me-2"></i>Clinic Location &amp; Directions</h5>
+                  <p class="text-muted-custom small mb-0">
+                    Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet, Miyapur, Hyderabad, Telangana 500049
+                  </p>
+                  <small class="text-muted d-block mt-1">
+                    <strong>Clinic Timings:</strong> Mon &ndash; Sat: 10:00 AM &ndash; 1:00 PM, 5:00 PM &ndash; 9:00 PM (Sunday Closed)
+                  </small>
+                </div>
+                <div class="d-flex flex-wrap gap-2 flex-shrink-0">
+                  <a href="https://maps.google.com/?cid=7083652876127174531" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm rounded-pill px-3 py-2">
+                    <i class="bi bi-compass me-1"></i> Google Maps Directions
+                  </a>
+                  <a href="index.html" class="btn btn-navy btn-sm rounded-pill px-3 py-2">
+                    <i class="bi bi-house-door me-1"></i> Return to Homepage
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-emblem">
+              <i class="bi bi-activity"></i>
+            </div>
+            <div>
+              <h4 class="mb-0 text-white font-heading">Dr. Anil's</h4>
+              <small class="text-sand text-uppercase fw-bold" style="letter-spacing: 1.2px; font-size: 0.76rem;">Physiotherapy &amp; Pain Relief</small>
+            </div>
+          </div>
+          <p style="font-size: 0.95rem; line-height: 1.75; color: #E2E8F0 !important;">
+            Dedicated, patient-centered physiotherapy and pain relief clinic located in Miyapur, Hyderabad. Committed to evidence-informed care, individual attention, and sustainable physical mobility.
+          </p>
+          <div class="mt-4">
+            <h6 class="text-white small text-uppercase fw-bold mb-2">Connect with Dr. Anil:</h6>
+            <ul class="social-links-list">
+              <li><a href="https://www.facebook.com/dranilsphysiotherapy/" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/dranilsphysiotherapy" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/dr-anils-physiotherapy/" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+              <li><a href="https://www.pinterest.com/dranilsphysiotherapy/" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a></li>
+              <li><a href="https://x.com/dranilsphysio" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a></li>
+              <li><a href="https://www.youtube.com/@DrAnilphysiotherapy" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a></li>
+              <li><a href="https://share.google/oYsHqs1YdW2rj2v3g" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="Google Business Profile"><i class="bi bi-google"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h4 class="text-white font-heading">Navigation</h4>
+          <ul class="footer-link-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Dr. Anil</a></li>
+            <li><a href="services.html">All Services</a></li>
+            <li><a href="blog.html">Patient Education</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#book">Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="text-white font-heading">Clinical Care</h4>
+          <ul class="footer-link-list">
+            <li><a href="services.html#back-neck">Back &amp; Neck Pain</a></li>
+            <li><a href="services.html#sports-rehab">Sports Injury Rehab</a></li>
+            <li><a href="services.html#orthopedic">Orthopedic Physiotherapy</a></li>
+            <li><a href="services.html#post-surgery">Post-Surgery Care</a></li>
+            <li><a href="services.html#joint-muscle">Joint &amp; Muscle Pain</a></li>
+            <li><a href="services.html#mobility-strength">Mobility &amp; Conditioning</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="text-white font-heading">Clinic Contact</h4>
+          <div class="d-flex flex-column gap-2" style="font-size: 0.94rem;">
+            <div class="d-flex align-items-start gap-2">
+              <i class="bi bi-geo-alt text-sand mt-1"></i>
+              <span>Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Hafeezpet, Miyapur, Hyderabad 500049</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-telephone text-sand"></i>
+              <span>Phone: <a href="tel:+916303738848" class="text-white text-decoration-none">+91 63037 38848</a> / <a href="tel:+919603726028" class="text-white text-decoration-none">+91 96037 26028</a></span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-whatsapp text-sand"></i>
+              <span>WhatsApp: <a href="https://wa.me/919603726028" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none">+91 96037 26028</a></span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock text-sand"></i>
+              <span>Hours: Mon &ndash; Sat: 10am&ndash;1pm, 5pm&ndash;9pm (Sun Closed)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3 text-center text-lg-start">
+        <div>
+          &copy; <span id="currentYear">2026</span> Dr. Anil's Physiotherapy and Pain Relief Clinic. All rights reserved.
+        </div>
+        <div class="footer-credit">
+          <span>Design by</span>
+          <a href="https://thebubblesmedia.com/" target="_blank" rel="noopener noreferrer" class="bubbles-media-link" title="The Bubbles Media">
+            <span class="bubbles-text">The Bubbles Media</span>
+            <span class="bubbles-fx" aria-hidden="true">
+              <span class="bubble b1"></span>
+              <span class="bubble b2"></span>
+              <span class="bubble b3"></span>
+              <span class="bubble b4"></span>
+              <span class="bubble b5"></span>
+              <span class="bubble b6"></span>
+            </span>
+          </a>
+        </div>
+        <div class="d-flex gap-3">
+          <a href="privacy-policy.html" class="text-white-50 text-decoration-none">Privacy Policy</a>
+          <span class="text-white-50">|</span>
+          <a href="terms.html" class="text-white-50 text-decoration-none">Terms &amp; Medical Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons -->
+  <aside class="fab-container" aria-label="Quick Communication Channels">
+    <a href="https://wa.me/919603726028?text=Hello%20Dr.%20Anil's%20Clinic,%20I%20would%20like%20to%20enquire%20about%20physiotherapy%20services." target="_blank" rel="noopener noreferrer" class="fab-btn fab-btn-whatsapp" aria-label="Chat on WhatsApp" data-source="Floating WhatsApp Button">
+      <i class="bi bi-whatsapp"></i>
+      <span class="fab-tooltip">WhatsApp: +91 96037 26028</span>
+    </a>
+    <a href="tel:+916303738848" class="fab-btn fab-btn-call" aria-label="Call clinic directly" data-source="Floating Call Button">
+      <i class="bi bi-telephone-fill"></i>
+      <span class="fab-tooltip">Call: +91 63037 38848</span>
+    </a>
+  </aside>
+
+  <!-- Bootstrap 5 JS Bundle & Custom Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    // Personalize confirmation message if details were passed
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name') || sessionStorage.getItem('last_lead_name');
+        const service = params.get('service') || sessionStorage.getItem('last_lead_service');
+        const confirmationEl = document.getElementById('confirmationText');
+        
+        if (name && confirmationEl) {
+          confirmationEl.innerHTML = `Thank you, <strong>${escapeHtml(name)}</strong>! Your consultation request${service ? ` for <strong>${escapeHtml(service)}</strong>` : ''} has been submitted to Dr. Anil's clinical desk in Miyapur.`;
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+    });
+  </script>
+</body>
+</html>

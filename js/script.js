@@ -265,7 +265,22 @@ document.addEventListener('DOMContentLoaded', () => {
       // Dispatch Conversion Events
       trackLeadEvent('appointment_form_submit', formData);
 
-      // Display Demo Success Alert
+      // Save to sessionStorage for fallback or state retention
+      try {
+        sessionStorage.setItem('last_lead_name', formData.name);
+        sessionStorage.setItem('last_lead_service', formData.service);
+        sessionStorage.setItem('dr_anil_last_lead', JSON.stringify(formData));
+      } catch (err) {
+        console.warn('Session storage error:', err);
+      }
+
+      // Provide visual button feedback
+      const submitBtn = document.getElementById('submitAppointmentBtn') || appointmentForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Confirming Appointment...';
+      }
+
       if (formFeedback) {
         formFeedback.className = 'alert alert-success d-flex align-items-start gap-3 p-3 mt-4 border-0 shadow-sm';
         formFeedback.style.backgroundColor = '#EBF6F5';
@@ -274,26 +289,46 @@ document.addEventListener('DOMContentLoaded', () => {
           <i class="bi bi-check-circle-fill text-teal fs-4"></i>
           <div>
             <h5 class="fw-bold mb-1" style="font-family: var(--font-heading);">Appointment Enquiry Received!</h5>
-            <p class="mb-2" style="font-size: 0.94rem;">Thank you, <strong>${formData.name}</strong>. Your enquiry for <strong>${formData.service}</strong> has been logged.</p>
-            <div class="p-2 rounded bg-white border border-teal-subtle" style="font-size: 0.84rem;">
-              <span class="badge bg-secondary mb-1">Frontend Demo Notice</span><br>
-              This website is in demonstration mode. In production, this enquiry is instantly dispatched to the clinic WhatsApp desk and booking calendar.
-            </div>
+            <p class="mb-0" style="font-size: 0.94rem;">Redirecting to confirmation page...</p>
           </div>
         `;
-        formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
-      // Reset Form
-      appointmentForm.reset();
-      [nameInput, phoneInput, emailInput, serviceInput, dateInput, timeInput, messageInput].forEach(inp => {
-        if (inp) {
-          inp.classList.remove('is-valid', 'is-invalid');
-          inp.removeAttribute('aria-invalid');
-        }
-      });
+      // Redirect to thank-you.html with details
+      const redirectUrl = `thank-you.html?name=${encodeURIComponent(formData.name)}&service=${encodeURIComponent(formData.service)}`;
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 350);
     });
   }
+
+  // Universal Form Handler: Ensure all forms across site redirect to thank-you.html upon valid submission
+  document.addEventListener('submit', (e) => {
+    const form = e.target;
+    if (!form || form.id === 'appointmentForm' || form.tagName !== 'FORM') return;
+    
+    e.preventDefault();
+    const nameInput = form.querySelector('input[name*="name" i], input[id*="name" i]');
+    const serviceInput = form.querySelector('select[name*="service" i], select[id*="service" i], input[name*="service" i]');
+    const name = nameInput ? nameInput.value.trim() : '';
+    const service = serviceInput ? serviceInput.value.trim() : '';
+    
+    try {
+      if (name) sessionStorage.setItem('last_lead_name', name);
+      if (service) sessionStorage.setItem('last_lead_service', service);
+    } catch (err) {}
+    
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
+    }
+    
+    const redirectUrl = `thank-you.html?name=${encodeURIComponent(name)}&service=${encodeURIComponent(service)}`;
+    setTimeout(() => {
+      window.location.href = redirectUrl;
+    }, 250);
+  });
 
   /* ==========================================================================
      3. BLOG ENGINE: CATEGORY FILTER, SEARCH & MODAL VIEWER
