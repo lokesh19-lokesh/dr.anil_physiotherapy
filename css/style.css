@@ -2692,4 +2692,316 @@ a:hover {
   }
 }
 
+/* ==========================================================================
+   EXPERIENCE SECTION (UNDER HERO - CLINICAL EXCELLENCE & STATS)
+   ========================================================================== */
+.experience-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  padding: 2.5rem 0 2rem 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
 
+.experience-main-row {
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+
+.experience-content-col {
+  padding-bottom: 2.2rem;
+}
+
+.experience-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-warm-sand-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  box-shadow: 0 4px 14px rgba(15, 45, 74, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.experience-rating-badge:hover {
+  border-color: var(--color-warm-sand);
+  transform: translateY(-1px);
+}
+
+.rating-stars {
+  color: #F59E0B;
+  display: flex;
+  gap: 3px;
+  font-size: 0.92rem;
+}
+
+.rating-text {
+  font-size: 0.86rem;
+  color: var(--color-deep-navy);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.experience-title {
+  font-size: clamp(1.9rem, 2.9vw, 2.55rem);
+  font-weight: 800;
+  color: var(--color-deep-navy);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.experience-accent-line {
+  width: 58px;
+  height: 4px;
+  background: var(--color-warm-sand);
+  border-radius: 2px;
+  margin: 1rem 0 1.25rem 0;
+}
+
+.experience-desc {
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: var(--color-muted-gray);
+  max-width: 580px;
+}
+
+.experience-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.experience-btn-primary {
+  padding: 0.82rem 1.9rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-deep-navy);
+  color: #FFFFFF !important;
+  border: 1.5px solid var(--color-deep-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(15, 45, 74, 0.16);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.experience-btn-primary:hover {
+  background: var(--color-soft-teal);
+  border-color: var(--color-soft-teal);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 112, 112, 0.26);
+}
+
+.experience-btn-secondary {
+  padding: 0.82rem 1.9rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  color: var(--color-deep-navy) !important;
+  border: 1.5px solid var(--color-border-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(15, 45, 74, 0.04);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.experience-btn-secondary:hover {
+  background: var(--color-warm-sand-light);
+  border-color: var(--color-warm-sand);
+  color: var(--color-deep-navy) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(198, 159, 104, 0.2);
+}
+
+/* Right Doctor Portrait (Transparent Cutout Resting Flush on Stats Box) */
+.experience-doctor-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.experience-doctor-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: -1px; /* Touches the top border of the stats box */
+  z-index: 5;
+}
+
+.experience-doctor-img {
+  position: relative;
+  z-index: 5;
+  max-width: 100%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0;
+  vertical-align: bottom;
+  filter: drop-shadow(0 14px 26px rgba(15, 45, 74, 0.12));
+  transition: transform 0.35s ease;
+}
+
+.experience-doctor-img:hover {
+  transform: translateY(-4px) scale(1.015);
+}
+
+/* Bottom Stats Card (Doctor image sits directly on top border) */
+.experience-stats-card {
+  background: #FFFFFF;
+  border: 1.5px solid #F0E6D8;
+  border-radius: 20px;
+  box-shadow: 0 10px 32px rgba(15, 45, 74, 0.06);
+  padding: 1.6rem 2.4rem;
+  margin-top: 0; /* Direct touch with doctor image above */
+  position: relative;
+  z-index: 4;
+}
+
+.exp-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: flex-start;
+  padding: 0.35rem 0.8rem;
+}
+
+.exp-stat-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+
+.exp-stat-item:hover .exp-stat-icon {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.exp-stat-icon.icon-experience {
+  background: rgba(37, 112, 112, 0.12);
+  color: var(--color-soft-teal);
+  border: 1px solid rgba(37, 112, 112, 0.2);
+}
+
+.exp-stat-icon.icon-patients {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+}
+
+.exp-stat-icon.icon-treatments {
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.22);
+}
+
+.exp-stat-number {
+  font-size: clamp(1.85rem, 2.5vw, 2.3rem);
+  font-weight: 800;
+  color: var(--color-deep-navy);
+  line-height: 1.1;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.exp-stat-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-muted-gray);
+  display: block;
+  margin-top: 3px;
+}
+
+/* Divider between stats on desktop */
+.exp-stat-divider {
+  border-right: 1px solid var(--color-border-subtle);
+}
+
+@media (max-width: 991.98px) {
+  .experience-section {
+    padding: 2.2rem 0 1.8rem 0;
+  }
+
+  .experience-content-col {
+    padding-bottom: 0;
+  }
+
+  .experience-title {
+    font-size: clamp(1.75rem, 4.8vw, 2.2rem);
+  }
+
+  .experience-accent-line {
+    margin: 0.85rem 0 1.1rem 0;
+  }
+
+  .experience-doctor-wrapper {
+    margin-top: 1.5rem;
+    margin-bottom: -1px;
+  }
+
+  .experience-doctor-img {
+    max-height: 360px;
+    margin-bottom: 0;
+  }
+
+  .experience-stats-card {
+    padding: 1.35rem 1.15rem;
+    margin-top: 0;
+  }
+
+  .exp-stat-divider {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding-bottom: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-stat-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .experience-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .experience-btn-primary,
+  .experience-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .exp-stat-item {
+    gap: 14px;
+  }
+
+  .exp-stat-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.35rem;
+  }
+
+  .exp-stat-number {
+    font-size: 1.9rem;
+  }
+}
