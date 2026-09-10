@@ -87,12 +87,28 @@
 </head>
 <body>
 
-  <!-- ==========================================================================
-       STICKY HEADER
-       ========================================================================== -->
+  <!-- Top Announcement & Quick Contact Bar -->
+  <div class="top-announcement-bar d-none d-md-block">
+    <div class="container-fluid px-3 px-md-4 px-xl-5" style="max-width: 1720px;">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <span><i class="bi bi-geo-alt-fill text-sand me-1"></i> Miyapur, Hyderabad</span>
+          <span>&bull;</span>
+          <span><i class="bi bi-clock-fill text-sand me-1"></i> Mon &ndash; Sat: 9:00 AM &ndash; 8:00 PM</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="tel:" class="fw-semibold"><i class="bi bi-telephone-fill text-teal me-1"></i> Call Desk: [ADD VERIFIED PHONE NUMBER]</a>
+          <a href="https://wa.me/?text=Hello%20Dr.%20Anil's%20Clinic,%20I%20would%20like%20to%20enquire%20about%20an%20appointment." target="_blank" rel="noopener noreferrer" class="badge text-white px-2 py-1" style="background-color: #25D366; text-decoration: none;"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Sticky Header -->
   <header class="site-header" role="banner">
     <nav class="navbar navbar-expand-lg py-3" aria-label="Main Navigation">
-      <div class="container">
+      <div class="container-fluid px-3 px-md-4 px-xl-5" style="max-width: 1720px;">
+        <!-- Clinic Logo / Wordmark -->
         <a class="navbar-brand-custom" href="index.html">
           <div class="brand-emblem">
             <i class="bi bi-activity"></i>
@@ -103,10 +119,12 @@
           </div>
         </a>
 
+        <!-- Mobile Hamburger Toggle -->
         <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation menu">
           <i class="bi bi-list fs-2 text-navy"></i>
         </button>
 
+        <!-- Navigation Links & Action CTA -->
         <div class="collapse navbar-collapse" id="navbarMainMenu">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-1 my-2 my-lg-0">
             <li class="nav-item">
