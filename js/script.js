@@ -315,14 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
         replyToInput.value = validReplyTo;
       }
 
-      // If browsing as a local file (file://), FormSubmit's AJAX endpoint blocks requests (Origin: null).
-      // Submitting via native HTML form POST works reliably and delivers the email directly!
-      if (isFileProtocol) {
-        appointmentForm.submit();
-        return;
-      }
-
-      // On Web Server (Localhost or Live Production Domain) via AJAX:
+      // Prepare email payload for background dispatch
       const emailPayload = {
         _subject: isLandingPage
           ? `New Priority Consultation: ${formData.name} (Google Ads Landing Page)`
@@ -352,39 +345,34 @@ document.addEventListener('DOMContentLoaded', () => {
         : 'Main Website Contact Page (contact.html)';
       emailPayload['Submitted At (IST)'] = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 4500);
+      // Target thank-you page with patient query parameters
+      const redirectUrl = `thank-you.html?name=${encodeURIComponent(formData.name)}&service=${encodeURIComponent(formData.service)}`;
 
-      let sendSucceeded = false;
-      try {
-        const response = await fetch('https://formsubmit.co/ajax/dranilsphysio@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(emailPayload),
-          signal: controller.signal
-        });
-        clearTimeout(timeoutId);
-        const resData = await response.json().catch(() => ({}));
-        if (resData.success === 'true' || resData.success === true) {
-          sendSucceeded = true;
+      // On Web Server (Localhost or Live Production Domain), send email in the background:
+      if (!isFileProtocol) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 4000);
+
+        try {
+          await fetch('https://formsubmit.co/ajax/dranilsphysio@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(emailPayload),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+        } catch (err) {
+          console.warn('Background email dispatch notice:', err);
         }
-      } catch (err) {
-        console.warn('AJAX email dispatch note:', err);
       }
 
-      // If AJAX succeeded, redirect cleanly to thank-you page
-      if (sendSucceeded) {
-        const redirectUrl = `thank-you.html?name=${encodeURIComponent(formData.name)}&service=${encodeURIComponent(formData.service)}`;
-        setTimeout(() => {
-          window.location.href = redirectUrl;
-        }, 300);
-      } else {
-        // If AJAX failed (e.g. origin restriction or network timeout), fallback to native form submit!
-        appointmentForm.submit();
-      }
+      // Always seamlessly redirect to thank-you.html (never leaving user on third-party error pages)
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 350);
     });
   }
 
