@@ -150,10 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const appointmentForm = document.getElementById('appointmentForm');
   if (appointmentForm) {
-    const nameInput = document.getElementById('fullName');
-    const phoneInput = document.getElementById('phoneNumber');
-    const emailInput = document.getElementById('emailAddress');
-    const serviceInput = document.getElementById('serviceRequired');
+    const nameInput = document.getElementById('fullName') || appointmentForm.querySelector('input[name*="name" i]');
+    const phoneInput = document.getElementById('phoneNumber') || appointmentForm.querySelector('input[type="tel"], input[name*="phone" i]');
+    const emailInput = document.getElementById('emailAddress') || appointmentForm.querySelector('input[type="email"]');
+    const serviceInput = document.getElementById('serviceRequired') || document.getElementById('preferredService') || appointmentForm.querySelector('select');
     const dateInput = document.getElementById('preferredDate');
     const timeInput = document.getElementById('preferredTime');
     const messageInput = document.getElementById('patientMessage');
@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const validateField = (input, isValid) => {
+      if (!input) return isValid;
       if (isValid) {
         input.classList.remove('is-invalid');
         input.classList.add('is-valid');
@@ -193,7 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (emailInput) {
       emailInput.addEventListener('blur', () => {
-        validateField(emailInput, emailRegex.test(emailInput.value.trim()));
+        if (emailInput.hasAttribute('required') || emailInput.value.trim().length > 0) {
+          validateField(emailInput, emailRegex.test(emailInput.value.trim()));
+        } else {
+          validateField(emailInput, true);
+        }
       });
     }
 
@@ -210,33 +215,35 @@ document.addEventListener('DOMContentLoaded', () => {
       let formIsValid = true;
 
       // Validate Name
-      if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-        validateField(nameInput, false);
+      if (!nameInput || !nameInput.value.trim() || nameInput.value.trim().length < 2) {
+        if (nameInput) validateField(nameInput, false);
         formIsValid = false;
       } else {
         validateField(nameInput, true);
       }
 
       // Validate Phone
-      const cleanedPhone = phoneInput.value.replace(/[\s\-+]/g, '');
-      if (!cleanedPhone || cleanedPhone.length < 10) {
-        validateField(phoneInput, false);
+      const cleanedPhone = phoneInput ? phoneInput.value.replace(/[\s\-+]/g, '') : '';
+      if (!phoneInput || !cleanedPhone || cleanedPhone.length < 10) {
+        if (phoneInput) validateField(phoneInput, false);
         formIsValid = false;
       } else {
         validateField(phoneInput, true);
       }
 
-      // Validate Email
-      if (!emailRegex.test(emailInput.value.trim())) {
-        validateField(emailInput, false);
-        formIsValid = false;
-      } else {
-        validateField(emailInput, true);
+      // Validate Email (if present)
+      if (emailInput && (emailInput.hasAttribute('required') || emailInput.value.trim().length > 0)) {
+        if (!emailRegex.test(emailInput.value.trim())) {
+          validateField(emailInput, false);
+          formIsValid = false;
+        } else {
+          validateField(emailInput, true);
+        }
       }
 
       // Validate Service
-      if (!serviceInput.value) {
-        validateField(serviceInput, false);
+      if (!serviceInput || !serviceInput.value) {
+        if (serviceInput) validateField(serviceInput, false);
         formIsValid = false;
       } else {
         validateField(serviceInput, true);
@@ -253,10 +260,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Payload for tracking
       const formData = {
-        name: nameInput.value.trim(),
+        name: nameInput ? nameInput.value.trim() : '',
         phone: cleanedPhone,
-        email: emailInput.value.trim(),
-        service: serviceInput.value,
+        email: emailInput ? emailInput.value.trim() : '',
+        service: serviceInput ? serviceInput.value : 'Physiotherapy Consultation',
         date: dateInput ? dateInput.value : '',
         time: timeInput ? timeInput.value : '',
         has_message: messageInput ? Boolean(messageInput.value.trim()) : false
