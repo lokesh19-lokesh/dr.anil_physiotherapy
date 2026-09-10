@@ -160,7 +160,7 @@
 
   <!-- Global Sticky Header -->
   <header class="site-header" role="banner">
-    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+    <nav class="navbar navbar-expand-lg py-3" aria-label="Main Navigation">
       <div class="container-fluid px-3 px-md-4 px-xl-5" style="max-width: 1720px;">
         <!-- Clinic Logo / Wordmark -->
         <a class="navbar-brand-custom" href="index.html">
@@ -210,61 +210,204 @@
 
   <main id="main-content">
     <!-- ==========================================================================
-         CINEMATIC HERO SECTION (Matching User Reference: Flexra & PhysioCore)
+         CINEMATIC HERO CAROUSEL (3 Interactive Slides)
          ========================================================================== -->
-    <section class="hero-section-cinematic" aria-labelledby="hero-title">
+    <section class="hero-section-cinematic" aria-label="Featured Physiotherapy Highlights">
       <div class="container-fluid px-3 px-md-4 px-xl-5" style="max-width: 1720px;">
-        <div class="hero-cinematic-card">
-          <div class="hero-cinematic-content">
-            <div class="hero-eyebrow-pill">
-              <i class="bi bi-shield-check"></i> PERSONALIZED CARE &bull; MEANINGFUL RECOVERY
-            </div>
-            
-            <h1 id="hero-title" class="hero-cinematic-title">
-              Relieve Pain, Restore<br>
-              Mobility &amp; Strength<br>
-              <span class="hero-cinematic-italic">Body Balance</span>
-            </h1>
-            
-            <p class="hero-cinematic-desc">
-              Targeted care focused on relieving pain, improving movement, and restoring everyday comfort through guided, personalized hands-on treatment. Conveniently located in Miyapur, Hyderabad.
-            </p>
-            
-            <div class="hero-cinematic-actions">
-              <a href="contact.html#book" class="btn-cinematic-white" data-placement="Hero Primary CTA">
-                <span>Book Appointment</span>
-                <span class="btn-bubble-circle"><i class="bi bi-arrow-right"></i></span>
-              </a>
-              <a href="services.html" class="btn-cinematic-glass">
-                <span>Our Services</span>
-                <span class="btn-bubble-circle-outline"><i class="bi bi-arrow-right"></i></span>
-              </a>
-            </div>
-            
-            <div class="hero-cinematic-trust-strip">
-              <div class="cinematic-trust-item">
-                <div class="cinematic-trust-bar"></div>
-                <div>
-                  <strong>Personalized Care</strong>
-                  <span>1-on-1 Physiotherapy Treatments</span>
-                </div>
-              </div>
-              <div class="cinematic-trust-item">
-                <div class="cinematic-trust-bar"></div>
-                <div>
-                  <strong>Trusted &amp; Trained</strong>
-                  <span>Physiotherapy Experts &bull; Miyapur</span>
-                </div>
-              </div>
-              <div class="cinematic-trust-item d-none d-lg-flex">
-                <div class="cinematic-trust-bar"></div>
-                <div>
-                  <strong>Evidence-Informed</strong>
-                  <span>Gentle Manual &amp; Movement Care</span>
-                </div>
-              </div>
-            </div>
+        <div id="heroCinematicCarousel" class="carousel slide carousel-fade hero-carousel-wrapper" data-bs-ride="carousel" data-bs-interval="6500" data-bs-pause="hover">
+          
+          <!-- Slide Indicators (Glass Pill Indicators) -->
+          <div class="carousel-indicators hero-carousel-indicators">
+            <button type="button" data-bs-target="#heroCinematicCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1: Relieve Pain & Restore Mobility"></button>
+            <button type="button" data-bs-target="#heroCinematicCarousel" data-bs-slide-to="1" aria-label="Slide 2: Spine, Neck & Joint Recovery"></button>
+            <button type="button" data-bs-target="#heroCinematicCarousel" data-bs-slide-to="2" aria-label="Slide 3: Sports Rehab & Functional Mobility"></button>
           </div>
+
+          <!-- Carousel Slides Inner -->
+          <div class="carousel-inner hero-carousel-inner">
+            
+            <!-- Slide 1: General Mobility & Pain Relief -->
+            <div class="carousel-item active" data-bs-interval="6500">
+              <div class="hero-cinematic-card hero-slide-bg-1">
+                <div class="hero-cinematic-content">
+                  <div class="hero-eyebrow-pill">
+                    <i class="bi bi-shield-check"></i> PERSONALIZED CARE &bull; MEANINGFUL RECOVERY
+                  </div>
+                  
+                  <h1 class="hero-cinematic-title">
+                    Relieve Pain, Restore<br>
+                    Mobility &amp; Strength<br>
+                    <span class="hero-cinematic-italic">Body Balance</span>
+                  </h1>
+                  
+                  <p class="hero-cinematic-desc">
+                    Targeted care focused on relieving pain, improving movement, and restoring everyday comfort through guided, personalized hands-on treatment. Conveniently located in Miyapur, Hyderabad.
+                  </p>
+                  
+                  <div class="hero-cinematic-actions">
+                    <a href="contact.html#book" class="btn-cinematic-white" data-placement="Hero Slide 1 CTA">
+                      <span>Book Appointment</span>
+                      <span class="btn-bubble-circle"><i class="bi bi-arrow-right"></i></span>
+                    </a>
+                    <a href="services.html" class="btn-cinematic-glass">
+                      <span>Our Services</span>
+                      <span class="btn-bubble-circle-outline"><i class="bi bi-arrow-right"></i></span>
+                    </a>
+                  </div>
+                  
+                  <div class="hero-cinematic-trust-strip">
+                    <div class="cinematic-trust-item">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Personalized Care</strong>
+                        <span>1-on-1 Physiotherapy Treatments</span>
+                      </div>
+                    </div>
+                    <div class="cinematic-trust-item">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Trusted &amp; Trained</strong>
+                        <span>Physiotherapy Experts &bull; Miyapur</span>
+                      </div>
+                    </div>
+                    <div class="cinematic-trust-item d-none d-lg-flex">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Evidence-Informed</strong>
+                        <span>Gentle Manual &amp; Movement Care</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Spine, Neck & Joint Recovery -->
+            <div class="carousel-item" data-bs-interval="6500">
+              <div class="hero-cinematic-card hero-slide-bg-2">
+                <div class="hero-cinematic-content">
+                  <div class="hero-eyebrow-pill">
+                    <i class="bi bi-check2-circle"></i> TARGETED REHAB &bull; SPINE &amp; JOINT CARE
+                  </div>
+                  
+                  <h2 class="hero-cinematic-title">
+                    Overcome Chronic Pain,<br>
+                    Reclaim Daily Freedom<br>
+                    <span class="hero-cinematic-italic">Targeted Healing</span>
+                  </h2>
+                  
+                  <p class="hero-cinematic-desc">
+                    Specialized clinical care for persistent back pain, neck stiffness, sciatica, and joint disorders with scientifically proven therapy protocols tailored to your lifestyle.
+                  </p>
+                  
+                  <div class="hero-cinematic-actions">
+                    <a href="contact.html#book" class="btn-cinematic-white" data-placement="Hero Slide 2 CTA">
+                      <span>Book Assessment</span>
+                      <span class="btn-bubble-circle"><i class="bi bi-arrow-right"></i></span>
+                    </a>
+                    <a href="services.html" class="btn-cinematic-glass">
+                      <span>Spine &amp; Joint Care</span>
+                      <span class="btn-bubble-circle-outline"><i class="bi bi-arrow-right"></i></span>
+                    </a>
+                  </div>
+                  
+                  <div class="hero-cinematic-trust-strip">
+                    <div class="cinematic-trust-item">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Root-Cause Focus</strong>
+                        <span>Thorough Biomechanical Evaluation</span>
+                      </div>
+                    </div>
+                    <div class="cinematic-trust-item">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Gentle &amp; Precise</strong>
+                        <span>Specialized Manual Mobilization</span>
+                      </div>
+                    </div>
+                    <div class="cinematic-trust-item d-none d-lg-flex">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Long-Term Relief</strong>
+                        <span>Guided Progressive Home Exercises</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Sports Injury & Post-Surgical Rehab -->
+            <div class="carousel-item" data-bs-interval="6500">
+              <div class="hero-cinematic-card hero-slide-bg-3">
+                <div class="hero-cinematic-content">
+                  <div class="hero-eyebrow-pill">
+                    <i class="bi bi-lightning-charge"></i> PERFORMANCE &bull; POST-SURGICAL REHAB
+                  </div>
+                  
+                  <h2 class="hero-cinematic-title">
+                    Regain Peak Motion &amp;<br>
+                    Functional Vitality<br>
+                    <span class="hero-cinematic-italic">Sports &amp; Recovery</span>
+                  </h2>
+                  
+                  <p class="hero-cinematic-desc">
+                    Comprehensive post-operative recovery and athletic rehabilitation programs designed to rebuild muscular resilience, restore full joint flexibility, and prevent re-injury safely.
+                  </p>
+                  
+                  <div class="hero-cinematic-actions">
+                    <a href="contact.html#book" class="btn-cinematic-white" data-placement="Hero Slide 3 CTA">
+                      <span>Schedule Rehab</span>
+                      <span class="btn-bubble-circle"><i class="bi bi-arrow-right"></i></span>
+                    </a>
+                    <a href="services.html" class="btn-cinematic-glass">
+                      <span>Sports Programs</span>
+                      <span class="btn-bubble-circle-outline"><i class="bi bi-arrow-right"></i></span>
+                    </a>
+                  </div>
+                  
+                  <div class="hero-cinematic-trust-strip">
+                    <div class="cinematic-trust-item">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Milestone Goals</strong>
+                        <span>Measured Step-by-Step Recovery</span>
+                      </div>
+                    </div>
+                    <div class="cinematic-trust-item">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Active Conditioning</strong>
+                        <span>Safe Functional Strength Rebuilding</span>
+                      </div>
+                    </div>
+                    <div class="cinematic-trust-item d-none d-lg-flex">
+                      <div class="cinematic-trust-bar"></div>
+                      <div>
+                        <strong>Direct Supervision</strong>
+                        <span>Senior Physiotherapist Attention</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel Controls (Previous / Next Arrows with Glassmorphism) -->
+          <button class="carousel-control-prev hero-carousel-btn hero-carousel-btn-prev" type="button" data-bs-target="#heroCinematicCarousel" data-bs-slide="prev" aria-label="Previous Slide">
+            <span class="hero-carousel-icon-box">
+              <i class="bi bi-chevron-left"></i>
+            </span>
+          </button>
+          <button class="carousel-control-next hero-carousel-btn hero-carousel-btn-next" type="button" data-bs-target="#heroCinematicCarousel" data-bs-slide="next" aria-label="Next Slide">
+            <span class="hero-carousel-icon-box">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+          </button>
+
         </div>
       </div>
     </section>
