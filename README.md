@@ -122,9 +122,19 @@ To maintain strict healthcare compliance and prevent misinformation, unverified 
 - Email: `dranilsphysio@gmail.com`
 - Address: `Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet, Miyapur, Hyderabad, Telangana 500049`
 - Timings: `Mon - Sat: 10:00 AM - 1:00 PM, 5:00 PM - 9:00 PM (Sunday Closed)`
-- Doctor Qualifications: `[ADD VERIFIED QUALIFICATIONS]`
-- Experience: `[ADD VERIFIED EXPERIENCE]`
-- Professional Registration: `[ADD VERIFIED PROFESSIONAL REGISTRATION]`
+
+### Verified Doctor Credentials (Authenticated via University & Association Certificates):
+1. **Dr. Anil Chand Gera** (Founder & Senior Consultant Physiotherapist):
+   - **Qualifications:** Bachelor of Physiotherapy (BPT) &ndash; Dr. NTR University of Health Sciences, AP (Nov 2009, Regd. No. `0338039`, Issued 28-12-2010)
+   - **Registration:** Life Member, The Indian Association of Physiotherapists (I.A.P. Reg. No. `L-32650`, Ref. No. `24550`, Dt. 17-04-2012)
+   - **Experience:** 16+ Years Clinical Practice
+
+2. **Dr. Sudeeptha Meruga** (Consultant Physiotherapist & Orthopaedic Specialist):
+   - **Qualifications:**
+     - Master of Physiotherapy in ORTHOPAEDICS (MPT Orthopaedics &ndash; First Division), Dr. NTR UHS (June 2010, Regd. No. `0843005M`, S. No. PP `000409`, Issued 01-10-2022)
+     - Bachelor of Physiotherapy (BPT), Dr. NTR UHS (March 2007, Regd. No. `0239013`, Issued 12-01-2013)
+   - **Registration:** Dr. NTR University of Health Sciences Verified (P.G. Regd. No. `0843005M` | U.G. Regd. No. `0239013`)
+   - **Experience:** 17+ Years Specialized Practice (MPT Orthopaedics)
 
 ---
 
