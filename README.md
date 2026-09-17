@@ -129,7 +129,7 @@ To maintain strict healthcare compliance and prevent misinformation, unverified 
    - **Registration:** Life Member, The Indian Association of Physiotherapists (I.A.P. Reg. No. `L-32650`, Ref. No. `24550`, Dt. 17-04-2012)
    - **Experience:** 16+ Years Clinical Practice
 
-2. **Dr. Sudeeptha Meruga** (Consultant Physiotherapist & Orthopaedic Specialist):
+2. **Dr. Sudeeptha Meruga** (Consultant Physiotherapist & Musculoskeletal Therapist):
    - **Qualifications:**
      - Master of Physiotherapy in ORTHOPAEDICS (MPT Orthopaedics &ndash; First Division), Dr. NTR UHS (June 2010, Regd. No. `0843005M`, S. No. PP `000409`, Issued 01-10-2022)
      - Bachelor of Physiotherapy (BPT), Dr. NTR UHS (March 2007, Regd. No. `0239013`, Issued 12-01-2013)
