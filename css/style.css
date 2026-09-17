@@ -3,38 +3,65 @@
    Master Premium Stylesheet (Rich Healthcare Aesthetic & High Contrast)
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
 /* --- CSS Variables / Design System Tokens --- */
 :root {
-  /* Rich Harmonious Color Palette */
-  --color-deep-navy: #0F2D4A;
-  --color-deep-navy-dark: #091D30;
-  --color-deep-navy-light: #184672;
-  --color-soft-teal: #257070;
-  --color-soft-teal-dark: #1b5353;
-  --color-soft-teal-light: #3b8c8c;
-  --color-warm-sand: #C69F68;
-  --color-warm-sand-light: #F7EFE3;
-  --color-warm-sand-border: #E5CDAC;
-  --color-warm-off-white: #FAF9F5;
-  --color-charcoal: #0F172A; /* High-contrast rich dark slate */
-  --color-muted-gray: #334155; /* Sharp readable slate, NOT washed out */
-  --color-muted-subtle: #475569;
-  --color-white: #FFFFFF;
+  /* ==========================================================================
+     OFFICIAL BRAND GUIDE TOKENS (Dr. Anil's Physiotherapy & Pain Relief)
+     ========================================================================== */
+  /* Primary Brand Colours */
+  --color-primary-dark: #0D3B66;     /* Main headings, navigation, strong text */
+  --color-primary-blue: #0EA5E9;     /* Primary Buttons, links, highlights */
+  --color-secondary-teal: #14B8A6;   /* Accents, icons, active states */
+  --color-fresh-green: #4CCB8F;      /* Highlights, success, wellness elements */
   
-  /* Borders & Accents */
-  --color-border-subtle: rgba(15, 45, 74, 0.1);
-  --color-border-medium: rgba(15, 45, 74, 0.18);
+  /* Brand Gradients */
+  --brand-gradient: linear-gradient(135deg, #4CCB8F 0%, #14B8A6 35%, #0EA5E9 70%, #0D3B66 100%);
+  --brand-gradient-h: linear-gradient(90deg, #4CCB8F 0%, #14B8A6 35%, #0EA5E9 70%, #0D3B66 100%);
+  --brand-gradient-btn: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  --brand-gradient-teal: linear-gradient(135deg, #14B8A6 0%, #4CCB8F 100%);
 
-  /* Typography - Modern High-End Clinical Sans */
-  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Neutrals (Backgrounds & Text) */
+  --color-bg-light: #F8FCFF;         /* Background Light (Page Backgrounds) */
+  --color-section-bg: #E6F2F8;       /* Section Background (Cards, Sections) */
+  --color-text-dark: #1F2937;        /* Text Dark (Headings, Body Text) */
+  --color-text-muted: #6B7280;       /* Text Muted (Sub Text, Icons) */
+  --color-white: #FFFFFF;            /* Pure White (Cards, Content Areas) */
+
+  /* Legacy mapping for 100% theme compatibility */
+  --color-deep-navy: #0D3B66;
+  --color-deep-navy-dark: #082642;
+  --color-deep-navy-light: #0EA5E9;
+  
+  --color-soft-teal: #14B8A6;
+  --color-soft-teal-dark: #0F766E;
+  --color-soft-teal-light: #4CCB8F;
+
+  --color-vibrant-cyan: #0EA5E9;
+  --color-warm-sand: #14B8A6;
+  --color-warm-sand-light: #E6F2F8;
+  --color-warm-sand-border: #BAE6FD;
+  --color-warm-off-white: #F8FCFF;
+
+  --color-charcoal: #1F2937;
+  --color-muted-gray: #6B7280;
+  --color-muted-subtle: #9CA3AF;
+
+  /* Borders & Accents */
+  --color-border-subtle: rgba(13, 59, 102, 0.09);
+  --color-border-medium: rgba(14, 165, 233, 0.25);
+
+  /* Typography - Poppins (Headings) & Inter (Body) */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-accent-italic: 'Playfair Display', Georgia, serif;
 
   /* Elevations & Luxury Shadows */
-  --shadow-subtle: 0 4px 20px rgba(15, 45, 74, 0.05);
-  --shadow-card: 0 10px 30px rgba(15, 45, 74, 0.08);
-  --shadow-hover: 0 18px 45px rgba(15, 45, 74, 0.14);
-  --shadow-float: 0 14px 38px rgba(0, 0, 0, 0.18);
+  --shadow-subtle: 0 4px 20px rgba(13, 59, 102, 0.05);
+  --shadow-card: 0 10px 30px rgba(13, 59, 102, 0.07);
+  --shadow-hover: 0 18px 45px rgba(14, 165, 233, 0.18);
+  --shadow-float: 0 14px 38px rgba(13, 59, 102, 0.20);
 
   /* Radii */
   --radius-sm: 8px;
@@ -208,23 +235,27 @@ a:hover {
 }
 
 .brand-emblem {
-  width: 54px;
-  height: 54px;
-  background: var(--color-deep-navy);
-  border-radius: 16px;
+  width: 50px;
+  height: 50px;
+  background: #FFFFFF url('../assets/icons/brand-emblem-transparent.png') no-repeat center / contain;
+  border-radius: 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-warm-sand);
-  font-size: 1.7rem;
-  box-shadow: 0 5px 18px rgba(15, 45, 74, 0.28);
-  border: 1.5px solid var(--color-warm-sand-border);
+  box-shadow: 0 4px 16px rgba(13, 59, 102, 0.10);
+  border: 1.5px solid #E6F2F8;
   flex-shrink: 0;
-  transition: transform 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-emblem i {
+  display: none; /* Replaced by official brand emblem mark */
 }
 
 .navbar-brand-custom:hover .brand-emblem {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+  border-color: #0EA5E9;
 }
 
 .brand-text-wrapper {
@@ -234,19 +265,19 @@ a:hover {
 
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-deep-navy);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 .brand-subtitle {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   text-transform: uppercase;
-  letter-spacing: 1.6px;
-  font-weight: 700;
-  color: var(--color-soft-teal);
+  letter-spacing: 1.4px;
+  font-weight: 600;
+  color: var(--color-secondary-teal);
 }
 
 .nav-link-custom {
@@ -289,9 +320,9 @@ a:hover {
    BUTTONS & CTAs
    ========================================================================== */
 .btn-navy {
-  background: linear-gradient(135deg, var(--color-deep-navy) 0%, var(--color-deep-navy-dark) 100%);
+  background: var(--color-primary-blue);
   color: var(--color-white) !important;
-  border: 1.5px solid var(--color-deep-navy);
+  border: 1.5px solid var(--color-primary-blue);
   font-weight: 600;
   font-size: 0.98rem;
   padding: 0.78rem 1.85rem;
@@ -301,22 +332,22 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 9px;
-  box-shadow: 0 4px 16px rgba(15, 45, 74, 0.22);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.35);
   min-height: 48px;
 }
 
 .btn-navy:hover,
 .btn-navy:focus-visible {
-  background: var(--color-deep-navy-dark);
-  border-color: var(--color-warm-sand);
+  background: #0284C7;
+  border-color: #0284C7;
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(15, 45, 74, 0.32);
+  box-shadow: 0 8px 26px rgba(14, 165, 233, 0.45);
 }
 
 .btn-teal {
-  background: linear-gradient(135deg, var(--color-soft-teal) 0%, var(--color-soft-teal-dark) 100%);
+  background: linear-gradient(135deg, var(--color-secondary-teal) 0%, var(--color-fresh-green) 100%);
   color: var(--color-white) !important;
-  border: 1.5px solid var(--color-soft-teal);
+  border: 1.5px solid var(--color-secondary-teal);
   font-weight: 600;
   font-size: 0.98rem;
   padding: 0.78rem 1.85rem;
@@ -326,16 +357,16 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 9px;
-  box-shadow: 0 4px 16px rgba(37, 112, 112, 0.25);
+  box-shadow: 0 4px 16px rgba(20, 184, 166, 0.35);
   min-height: 48px;
 }
 
 .btn-teal:hover,
 .btn-teal:focus-visible {
-  background: var(--color-soft-teal-dark);
-  border-color: var(--color-warm-sand);
+  background: var(--color-secondary-teal);
+  border-color: var(--color-secondary-teal);
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(37, 112, 112, 0.35);
+  box-shadow: 0 8px 26px rgba(20, 184, 166, 0.45);
 }
 
 .btn-outline-navy {
@@ -571,9 +602,9 @@ a:hover {
   left: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #2DD4BF, #5EEAD4);
+  background: linear-gradient(90deg, #4CCB8F, #14B8A6, #0EA5E9);
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(45, 212, 191, 0.8);
+  box-shadow: 0 0 12px rgba(20, 184, 166, 0.85);
   animation: indicatorProgress 6.5s linear forwards;
 }
 
@@ -2609,9 +2640,9 @@ a:hover {
 
 /* Clinical CTA Button */
 .btn-clinical-cta {
-  background: linear-gradient(135deg, #257070 0%, #1e5c5c 100%);
+  background: linear-gradient(135deg, #14B8A6 0%, #0D3B66 100%);
   color: #ffffff;
-  border: 1.5px solid rgba(78, 205, 196, 0.45);
+  border: 1.5px solid rgba(76, 203, 143, 0.5);
   padding: 0.82rem 1.9rem;
   border-radius: var(--radius-pill);
   font-weight: 600;
@@ -2620,15 +2651,15 @@ a:hover {
   align-items: center;
   gap: 8px;
   transition: var(--transition-smooth);
-  box-shadow: 0 6px 22px rgba(37, 112, 112, 0.35);
+  box-shadow: 0 6px 22px rgba(20, 184, 166, 0.35);
   text-decoration: none;
 }
 
 .btn-clinical-cta:hover {
-  background: linear-gradient(135deg, #2d8585 0%, #257070 100%);
+  background: linear-gradient(135deg, #0EA5E9 0%, #14B8A6 100%);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(37, 112, 112, 0.5), 0 0 20px rgba(78, 205, 196, 0.3);
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.45), 0 0 20px rgba(76, 203, 143, 0.35);
 }
 
 /* Responsive adjustments for Clinical Difference Section */
@@ -2754,7 +2785,7 @@ a:hover {
 .experience-accent-line {
   width: 58px;
   height: 4px;
-  background: var(--color-warm-sand);
+  background: linear-gradient(90deg, #4CCB8F 0%, #14B8A6 40%, #0EA5E9 100%);
   border-radius: 2px;
   margin: 1rem 0 1.25rem 0;
 }
@@ -2861,9 +2892,9 @@ a:hover {
 /* Bottom Stats Card (Doctor image sits directly on top border) */
 .experience-stats-card {
   background: #FFFFFF;
-  border: 1.5px solid #F0E6D8;
+  border: 1.5px solid #E6F2F8;
   border-radius: 20px;
-  box-shadow: 0 10px 32px rgba(15, 45, 74, 0.06);
+  box-shadow: 0 10px 32px rgba(13, 59, 102, 0.07);
   padding: 1.6rem 2.4rem;
   margin-top: 0; /* Direct touch with doctor image above */
   position: relative;
@@ -2895,21 +2926,21 @@ a:hover {
 }
 
 .exp-stat-icon.icon-experience {
-  background: rgba(37, 112, 112, 0.12);
-  color: var(--color-soft-teal);
-  border: 1px solid rgba(37, 112, 112, 0.2);
+  background: rgba(13, 59, 102, 0.08);
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(13, 59, 102, 0.16);
 }
 
 .exp-stat-icon.icon-patients {
-  background: rgba(16, 185, 129, 0.12);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.22);
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--color-primary-blue);
+  border: 1px solid rgba(14, 165, 233, 0.25);
 }
 
 .exp-stat-icon.icon-treatments {
-  background: rgba(14, 165, 233, 0.12);
-  color: #0284c7;
-  border: 1px solid rgba(14, 165, 233, 0.22);
+  background: rgba(20, 184, 166, 0.12);
+  color: var(--color-secondary-teal);
+  border: 1px solid rgba(20, 184, 166, 0.25);
 }
 
 .exp-stat-number {

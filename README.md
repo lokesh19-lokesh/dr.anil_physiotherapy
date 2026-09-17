@@ -35,21 +35,27 @@ dr.anil_physiotherapy/
 
 ---
 
-## 2. Design System & Palette
+## 2. Official Brand Design System & Palette
 
-| Token | Hex | Usage |
+| Token | Hex | Usage & Application |
 | :--- | :--- | :--- |
-| **Deep Navy** | `#123B5D` | Headings, primary buttons, sticky navbar, footer |
-| **Soft Teal** | `#3B8C8C` | Secondary accents, icons, links, highlight badges |
-| **Warm Sand** | `#D9B98C` | Premium decorative accents, subtle borders |
-| **Warm Off-White** | `#F8F7F4` | Main page background |
-| **Charcoal** | `#1F2933` | Body typography |
-| **Muted Gray** | `#667085` | Supporting text, captions, metadata |
-| **White** | `#FFFFFF` | Cards, modals, contrast sections |
+| **Primary Dark** | `#0D3B66` | Main headings, navigation bar, strong text, footer |
+| **Primary Blue** | `#0EA5E9` | Primary CTAs, active buttons, links, highlights |
+| **Secondary Teal** | `#14B8A6` | Accent borders, medical icons, active states |
+| **Fresh Green** | `#4CCB8F` | Highlights, success elements, wellness indicators |
+| **Background Light** | `#F8FCFF` | Clean, luminous clinical page background |
+| **Section Background** | `#E6F2F8` | Feature cards, alternating section backgrounds |
+| **Text Dark** | `#1F2937` | High-contrast readable body & title typography |
+| **Text Muted** | `#6B7280` | Subtext, captions, metadata |
+| **Pure White** | `#FFFFFF` | Content cards, modals, form containers |
+
+### Brand Gradient
+- `linear-gradient(90deg, #4CCB8F 0%, #14B8A6 35%, #0EA5E9 70%, #0D3B66 100%)`
+- Slogan / Tagline: **MOVE BETTER • LIVE PAIN-FREE**
 
 ### Typography Pairing
-- **Headings:** *Playfair Display* (Google Fonts) – Sophisticated, calm, clinical editorial feel.
-- **Body & Controls:** *Inter* (Google Fonts) – Ultra-legible, crisp, modern UI typography.
+- **Headings:** *Poppins Bold* (Google Fonts) – Friendly, modern, clinical confidence.
+- **Body & Controls:** *Inter* / *Poppins Regular* (Google Fonts) – High legibility for medical and clinical content.
 
 ---
 
