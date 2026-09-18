@@ -3048,19 +3048,40 @@ a:hover {
   }
 
   .experience-stats-card {
-    padding: 1.35rem 1.15rem;
+    padding: 1.25rem 0.85rem;
     margin-top: 0;
   }
 
   .exp-stat-divider {
-    border-right: none;
-    border-bottom: 1px solid var(--color-border-subtle);
-    padding-bottom: 0.85rem;
-    margin-bottom: 0.4rem;
+    border-right: 1px solid var(--color-border-subtle);
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .exp-stat-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
     justify-content: center;
+    gap: 8px;
+    padding: 0.2rem;
+  }
+
+  .exp-stat-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .exp-stat-number {
+    font-size: clamp(1.3rem, 3.2vw, 1.7rem);
+  }
+
+  .exp-stat-label {
+    font-size: 0.82rem;
+    line-height: 1.25;
   }
 }
 
@@ -3076,18 +3097,33 @@ a:hover {
     justify-content: center;
   }
 
+  .experience-stats-card {
+    padding: 1rem 0.45rem;
+    border-radius: 16px;
+  }
+
   .exp-stat-item {
-    gap: 14px;
+    gap: 5px;
+    padding: 0.15rem 0.1rem;
   }
 
   .exp-stat-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 1.35rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    margin-bottom: 2px;
   }
 
   .exp-stat-number {
-    font-size: 1.9rem;
+    font-size: clamp(1.12rem, 4.4vw, 1.4rem);
+    line-height: 1.1;
+  }
+
+  .exp-stat-label {
+    font-size: clamp(0.65rem, 2.5vw, 0.74rem);
+    line-height: 1.2;
+    margin-top: 2px;
   }
 }
 
