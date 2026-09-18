@@ -116,7 +116,7 @@ function trackLeadEvent(eventName, eventParams = {}) {
   } else {
     window.addEventListener('load', handlePageReady, { once: true });
     // Safety fallback: dismiss after max 2.6s if external CDN or asset hangs
-    setTimeout(dismissPreloader, 2600);
+    setTimeout(dismissPreloader, 5600);
   }
 })();
 
@@ -416,24 +416,24 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('submit', (e) => {
     const form = e.target;
     if (!form || form.id === 'appointmentForm' || form.tagName !== 'FORM') return;
-    
+
     e.preventDefault();
     const nameInput = form.querySelector('input[name*="name" i], input[id*="name" i]');
     const serviceInput = form.querySelector('select[name*="service" i], select[id*="service" i], input[name*="service" i]');
     const name = nameInput ? nameInput.value.trim() : '';
     const service = serviceInput ? serviceInput.value.trim() : '';
-    
+
     try {
       if (name) sessionStorage.setItem('last_lead_name', name);
       if (service) sessionStorage.setItem('last_lead_service', service);
-    } catch (err) {}
-    
+    } catch (err) { }
+
     const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
     }
-    
+
     const redirectUrl = `thank-you.html?name=${encodeURIComponent(name)}&service=${encodeURIComponent(service)}`;
     setTimeout(() => {
       window.location.href = redirectUrl;
@@ -566,8 +566,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const filtered = blogArticles.filter(item => {
       const matchesCategory = currentCategory === 'all' || item.categorySlug === currentCategory;
-      const matchesSearch = searchQuery === '' || 
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      const matchesSearch = searchQuery === '' ||
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.category.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
