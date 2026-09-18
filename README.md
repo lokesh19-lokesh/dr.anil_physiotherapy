@@ -127,7 +127,7 @@ To maintain strict healthcare compliance and prevent misinformation, unverified 
 - WhatsApp: `+91 96037 26028`
 - Email: `dranilsphysio@gmail.com`
 - Address: `Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet, Miyapur, Hyderabad, Telangana 500049`
-- Timings: `Mon - Sat: 10:00 AM - 1:00 PM, 5:00 PM - 9:00 PM (Sunday Closed)`
+- Timings: `Mon - Sat: 9:30 AM - 1:30 PM, 2:30 PM - 9:00 PM (Sunday Closed)`
 
 ### Verified Doctor Credentials (Authenticated via University & Association Certificates):
 1. **Dr. Anil Chand Gera** (Founder & Senior Consultant Physiotherapist):
