@@ -2777,11 +2777,14 @@ a:hover {
    EXPERIENCE SECTION (UNDER HERO - CLINICAL EXCELLENCE & STATS)
    ========================================================================== */
 .experience-section {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
-  padding: 2.5rem 0 2rem 0;
+  background: radial-gradient(circle at 85% 25%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+              radial-gradient(circle at 15% 75%, rgba(20, 184, 166, 0.08) 0%, transparent 40%),
+              linear-gradient(180deg, #EFF7FB 0%, #E3EFF6 100%);
+  padding: 3rem 0 2.2rem 0;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--color-border-subtle);
+  border-top: 1px solid rgba(13, 59, 102, 0.06);
+  border-bottom: 1px solid rgba(13, 59, 102, 0.08);
 }
 
 .experience-main-row {
@@ -2798,10 +2801,10 @@ a:hover {
   align-items: center;
   gap: 10px;
   background: #FFFFFF;
-  border: 1.5px solid var(--color-warm-sand-border);
+  border: 1.5px solid rgba(14, 165, 233, 0.25);
   border-radius: var(--radius-pill);
   padding: 6px 16px;
-  box-shadow: 0 4px 14px rgba(15, 45, 74, 0.05);
+  box-shadow: 0 4px 14px rgba(13, 59, 102, 0.06);
   transition: var(--transition-smooth);
 }
 
@@ -2942,9 +2945,9 @@ a:hover {
 /* Bottom Stats Card (Doctor image sits directly on top border) */
 .experience-stats-card {
   background: #FFFFFF;
-  border: 1.5px solid #E6F2F8;
+  border: 1.5px solid rgba(14, 165, 233, 0.16);
   border-radius: 20px;
-  box-shadow: 0 10px 32px rgba(13, 59, 102, 0.07);
+  box-shadow: 0 14px 38px rgba(13, 59, 102, 0.08);
   padding: 1.6rem 2.4rem;
   margin-top: 0; /* Direct touch with doctor image above */
   position: relative;
