@@ -84,6 +84,42 @@ function trackLeadEvent(eventName, eventParams = {}) {
   }
 }
 
+/* ==========================================================================
+   HOME PAGE BRAND PRELOADER (Logo Animation on Load / Reload)
+   ========================================================================== */
+(function initHomePreloader() {
+  const preloader = document.getElementById('homePreloader');
+  if (!preloader) return;
+
+  const minPlayDuration = 1050; // Smooth duration for logo entrance and progress bar
+  const startTime = Date.now();
+  let isHidden = false;
+
+  function dismissPreloader() {
+    if (isHidden) return;
+    isHidden = true;
+    preloader.classList.add('fade-out');
+    setTimeout(() => {
+      preloader.style.display = 'none';
+      preloader.setAttribute('aria-hidden', 'true');
+    }, 650);
+  }
+
+  function handlePageReady() {
+    const elapsed = Date.now() - startTime;
+    const delay = Math.max(0, minPlayDuration - elapsed);
+    setTimeout(dismissPreloader, delay);
+  }
+
+  if (document.readyState === 'complete') {
+    handlePageReady();
+  } else {
+    window.addEventListener('load', handlePageReady, { once: true });
+    // Safety fallback: dismiss after max 2.6s if external CDN or asset hangs
+    setTimeout(dismissPreloader, 2600);
+  }
+})();
+
 // Global delegated event listeners for CTAs & Ads conversions
 document.addEventListener('DOMContentLoaded', () => {
   // Sticky header scroll behavior

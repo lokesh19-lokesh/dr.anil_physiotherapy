@@ -3167,3 +3167,170 @@ a:hover {
   color: var(--color-deep-navy);
 }
 
+/* ==========================================================================
+   HOME PAGE BRAND PRELOADER (Logo Animation on Reload)
+   ========================================================================== */
+#homePreloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 46%, #FFFFFF 40%, #F3F8FC 100%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, visibility;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+#homePreloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.preloader-logo-container {
+  position: relative;
+  margin-bottom: 26px;
+  animation: preloaderLogoIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.preloader-logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 140px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(14, 165, 233, 0.24) 0%, rgba(16, 185, 129, 0.12) 50%, transparent 75%);
+  filter: blur(28px);
+  border-radius: 50%;
+  z-index: 1;
+  animation: preloaderGlowPulse 2s ease-in-out infinite alternate;
+}
+
+.preloader-logo-img {
+  position: relative;
+  z-index: 2;
+  height: 92px;
+  width: auto;
+  max-width: 340px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(13, 59, 102, 0.12));
+  animation: preloaderLogoFloat 2.6s ease-in-out infinite alternate;
+}
+
+.preloader-progress-track {
+  width: 210px;
+  height: 4px;
+  background: rgba(13, 59, 102, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.preloader-progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #0D3B66 0%, #0EA5E9 50%, #10B981 100%);
+  animation: preloaderProgressFill 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.preloader-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-deep-navy);
+  opacity: 0;
+  animation: preloaderSubtitleIn 0.7s ease-out 0.25s forwards;
+}
+
+@keyframes preloaderLogoIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes preloaderLogoFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes preloaderGlowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes preloaderProgressFill {
+  0% {
+    width: 0%;
+  }
+  45% {
+    width: 68%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes preloaderSubtitleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .preloader-logo-img {
+    height: 70px;
+    max-width: 260px;
+  }
+
+  .preloader-progress-track {
+    width: 170px;
+  }
+
+  .preloader-subtitle {
+    font-size: 0.74rem;
+    letter-spacing: 1.5px;
+  }
+}
+
