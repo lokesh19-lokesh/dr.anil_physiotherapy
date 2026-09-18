@@ -433,6 +433,29 @@ a:hover {
   box-shadow: 0 6px 20px rgba(15, 45, 74, 0.2);
 }
 
+.btn-outline-teal {
+  background-color: transparent;
+  color: var(--color-teal) !important;
+  border: 1.5px solid var(--color-teal);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-outline-teal:hover,
+.btn-outline-teal:focus-visible {
+  background-color: var(--color-teal);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 112, 112, 0.25);
+}
+
 .btn-outline-white {
   background-color: transparent;
   color: #FFFFFF !important;
@@ -3204,6 +3227,82 @@ a:hover {
   border-radius: 6px;
   background-color: rgba(18, 59, 93, 0.06);
   color: var(--color-deep-navy);
+}
+
+.cert-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #FFFFFF;
+  color: var(--color-deep-navy);
+  border: 1px solid #CBD5E1;
+  padding: 0.28rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cert-view-btn:hover {
+  background: var(--color-teal);
+  color: #FFFFFF !important;
+  border-color: var(--color-teal);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 112, 112, 0.18);
+}
+
+.cert-tab-btn {
+  border-radius: 24px !important;
+  font-weight: 600;
+  font-size: 0.84rem;
+  padding: 0.45rem 1rem !important;
+  color: var(--color-deep-navy) !important;
+  border: 1px solid #E2E8F0 !important;
+  background: #F8FAFC !important;
+  transition: all 0.2s ease;
+}
+
+.cert-tab-btn.active,
+.cert-tab-btn:hover {
+  background: var(--color-deep-navy) !important;
+  color: #FFFFFF !important;
+  border-color: var(--color-deep-navy) !important;
+}
+
+.cert-img-frame {
+  background: #0F172A;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cert-img-frame img {
+  max-height: 480px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.cert-img-frame:hover img {
+  transform: scale(1.02);
+}
+
+.cert-detail-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
 }
 
 /* ==========================================================================

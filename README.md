@@ -130,10 +130,29 @@ To maintain strict healthcare compliance and prevent misinformation, unverified 
 - Timings: `Mon - Sat: 9:30 AM - 1:30 PM, 2:30 PM - 9:00 PM (Sunday Closed)`
 
 ### Verified Doctor Credentials (Authenticated via University & Association Certificates):
-1. **Dr. Anil Chand Gera** (Founder & Senior Consultant Physiotherapist):
-   - **Qualifications:** Bachelor of Physiotherapy (BPT) &ndash; Dr. NTR University of Health Sciences, AP (Nov 2009, Regd. No. `0338039`, Issued 28-12-2010)
-   - **Registration:** Life Member, The Indian Association of Physiotherapists (I.A.P. Reg. No. `L-32650`, Ref. No. `24550`, Dt. 17-04-2012)
-   - **Experience:** 16+ Years Clinical Practice
+1. **Dr. Anil Chand Gera / Dr. G. Anil Chand, PT** (Founder & Senior Consultant Physiotherapist):
+   - **University Degrees:** Bachelor of Physiotherapy (BPT) &ndash; Dr. NTR University of Health Sciences, AP (Nov 2009, Regd. No. `0338039`, Issued 28-12-2010)
+   - **Council Registration:** Life Member, The Indian Association of Physiotherapists (I.A.P. Reg. No. `L-32650`, Ref. No. `24550`, Dt. 17-04-2012)
+   - **Clinical Experience:** 16+ Years Dedicated Practice
+   - **Specialized Clinical Certifications & Fellowships (Authenticated):**
+     1. **Advanced Biomechanical Corrections (ABC) – Level 3 Advanced Level:**
+        - Specialization: *Osteopathy & Diversified Chiropractic Spine Manipulation*
+        - Approved by: Indian School of Biomechanics & The Cortex / PIIMSR
+        - Reg. No: `042 /ABC/Adv/Hyderabad/December-2025` (24 Credit Hours, 21-23 Nov 2025, Hyderabad)
+     2. **Advanced Biomechanical Corrections of Extremities (ABCE):**
+        - Specialization: *Osteopathy and Diversified Chiropractic Peripheral Manipulation*
+        - Issuing Institute: Pearl International Institute of Medical Sciences and Research (PIIMSR)
+        - Reg. No: `209 ABCE - HYD - 2023` (24 Credit Hours, 15-17 Dec 2023, Hyderabad)
+     3. **Certified Diversified Needling Therapist:**
+        - Issuing Body: Cortex Sports Therapy Association (CSTA)
+        - Recognitions: Registered Under Ministry of Corporate Affairs, Ministry of MSME (Govt. of India)
+        - Reg. No: `HR14202001660` | Course No: `CEP 784623` | 8 CEC Hours / 1.6 CPD Approved (Valid Worldwide)
+     4. **PNF Therapy (Proprioceptive Neuromuscular Facilitation):**
+        - Specialization: Practical Skills to Assess & Treat Neuro-Musculoskeletal Disorders
+        - Issuing Body: Advanced Physical Therapy Academy (APTA), Govt. of India Reg. `BOZPS6725JSD001` (8 Credit Hours, 26 Nov 2022)
+     5. **Reflex Release Techniques (RRT):**
+        - Specialization: Practical Skills to Assess & Treat Neuro-Musculoskeletal Disorders
+        - Issuing Body: Advanced Physical Therapy Academy (APTA), Govt. of India Reg. `BOZPS6725JSD001` (8 Credit Hours, 27 Nov 2022)
 
 2. **Dr. Sudeeptha Meruga** (Consultant Physiotherapist & Musculoskeletal Therapist):
    - **Qualifications:**

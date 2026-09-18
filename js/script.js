@@ -740,5 +740,25 @@ document.addEventListener('DOMContentLoaded', () => {
       triggerAllCounters();
     }
   }
+
+  /* ==========================================================================
+     DOCTOR CERTIFICATE TAB TRIGGER HELPER
+     ========================================================================== */
+  const certViewBtns = document.querySelectorAll('.cert-view-btn[data-cert-target]');
+  certViewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetSelector = btn.getAttribute('data-cert-target');
+      if (!targetSelector) return;
+      const tabTrigger = document.querySelector(`button[data-bs-target="${targetSelector}"]`);
+      if (tabTrigger) {
+        if (window.bootstrap && bootstrap.Tab) {
+          const tab = bootstrap.Tab.getOrCreateInstance(tabTrigger);
+          tab.show();
+        } else {
+          tabTrigger.click();
+        }
+      }
+    });
+  });
 });
 
