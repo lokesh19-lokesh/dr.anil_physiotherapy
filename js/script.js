@@ -156,6 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Track Directions CTA clicks
+  document.querySelectorAll('.fab-btn-directions, a[href*="maps/dir"]').forEach(el => {
+    el.addEventListener('click', () => {
+      trackLeadEvent('directions_click', {
+        label: el.innerText.trim() || 'Get Directions',
+        source: el.getAttribute('data-source') || 'Floating Directions Button'
+      });
+    });
+  });
+
   // Track "Book an Appointment" CTA button clicks
   document.querySelectorAll('.btn-book-cta, a[href*="contact.html#book"]').forEach(el => {
     el.addEventListener('click', () => {

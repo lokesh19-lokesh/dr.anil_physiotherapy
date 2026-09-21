@@ -1669,6 +1669,17 @@ a:hover {
   text-decoration: none;
 }
 
+.fab-btn-directions {
+  background: #1A73E8;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.fab-btn-directions:hover {
+  background: #1557b0;
+  border-color: #FFFFFF;
+  transform: scale(1.08) translateY(-2px);
+}
+
 .fab-btn-whatsapp {
   background: #25D366;
 }
