@@ -25,7 +25,7 @@ dr.anil_physiotherapy/
 │
 ├── assets/
 │   ├── images/             # Optimized local clinical photography
-│   └── icons/              # SVG clinic emblem logo & favicon
+│   └── icons/              # Clinic logo (logo.png) & favicon (fevicon.png)
 │
 ├── favicon.ico             # Browser favicon
 ├── robots.txt              # Search engine crawler directives
