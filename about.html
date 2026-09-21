@@ -182,9 +182,27 @@
                   "@type": "EducationalOrganization",
                   "name": "Dr. NTR University of Health Sciences"
                 }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "certification",
+                "name": "Certificate in Positional Release Therapy (C.P.R.T.)",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Physioneeds Academy, London, United Kingdom"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "certification",
+                "name": "Online Certification Course in Kinesiology Taping",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "E-Physioneeds Academy (ISSA Accredited)"
+                }
               }
             ],
-            "description": "Consultant Physiotherapist and Musculoskeletal Therapist with 17+ years of clinical experience in advanced orthopaedic, joint mobilization, and post-surgical rehabilitation."
+            "description": "Consultant Physiotherapist and Musculoskeletal Therapist with 17+ years of clinical experience in advanced orthopaedic, joint mobilization, Positional Release Therapy (C.P.R.T. London, UK), Kinesiology Taping, and post-surgical rehabilitation."
           }
         ]
       }
@@ -611,11 +629,18 @@
 
                   <!-- Verified Information Structure -->
                   <div class="credentials-box mb-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                      <h6 class="text-uppercase fw-bold text-navy small mb-0"><i class="bi bi-shield-fill-check text-teal me-1"></i> Verified Professional Credentials</h6>
-                      <span class="badge bg-white text-navy border small">Dr. NTR UHS Verified</span>
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3 pb-2 border-bottom">
+                      <div>
+                        <h6 class="text-uppercase fw-bold text-navy small mb-0"><i class="bi bi-shield-fill-check text-teal me-1"></i> Verified Professional Credentials &amp; Certifications</h6>
+                        <span class="text-muted-custom" style="font-size: 0.78rem;">Authenticated via Dr. NTR UHS, Physioneeds Academy (London, UK) &amp; E-Physioneeds</span>
+                      </div>
+                      <button type="button" class="btn btn-sm btn-outline-teal rounded-pill px-3 py-1" data-bs-toggle="modal" data-bs-target="#drSudeepthaCertificatesModal">
+                        <i class="bi bi-file-earmark-medical-fill me-1"></i> View Certificates (2)
+                      </button>
                     </div>
-                    <div class="row g-2 small text-muted-custom">
+
+                    <!-- University & Council Registrations -->
+                    <div class="row g-2 small text-muted-custom mb-3 pb-3 border-bottom">
                       <div class="col-sm-6">
                         <div class="credential-item">
                           <strong>P.G. Qualification:</strong>
@@ -624,14 +649,14 @@
                       </div>
                       <div class="col-sm-6">
                         <div class="credential-item">
-                          <strong>U.G. Qualification:</strong>
-                          <span>BPT &ndash; Bachelor of Physiotherapy</span>
+                          <strong>Awarding University:</strong>
+                          <span>Dr. NTR University of Health Sciences</span>
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="credential-item">
-                          <strong>Awarding University:</strong>
-                          <span>Dr. NTR University of Health Sciences</span>
+                          <strong>U.G. Qualification:</strong>
+                          <span>BPT &ndash; Bachelor of Physiotherapy</span>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -653,23 +678,64 @@
                         </div>
                       </div>
                     </div>
+
+                    <!-- Specialized Clinical Certifications (Authenticated) -->
+                    <div class="pt-1">
+                      <h6 class="text-uppercase fw-bold text-navy small mb-2"><i class="bi bi-patch-check-fill text-teal me-1"></i> Specialized Clinical Certifications (Authenticated):</h6>
+                      <div class="row g-2 small text-muted-custom">
+                        <div class="col-12">
+                          <div class="credential-item align-items-start">
+                            <i class="bi bi-patch-check-fill text-teal flex-shrink-0 mt-1"></i>
+                            <div>
+                              <strong class="text-navy">Positional Release Therapy (C.P.R.T.):</strong>
+                              <span>Certificate in Positional Release Therapy &ndash; Physioneeds Academy, London, United Kingdom (<span class="text-navy fw-semibold">Certificate No: ZKH6F0QA</span> &bull; Issue Date: 17 June 2026 &bull; Licensed by Physioneeds Academy UK &bull; Reg: IAF, ISO, GeM, UN DESA, ADB, MSME, Skill India)</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="credential-item align-items-start">
+                            <i class="bi bi-patch-check-fill text-teal flex-shrink-0 mt-1"></i>
+                            <div>
+                              <strong class="text-navy">Kinesiology Taping:</strong>
+                              <span>Online Certification Course in Kinesiology Taping &ndash; E-Physioneeds Academy (<span class="text-navy fw-semibold">Certificate No: WN60T7LS</span> &bull; Issue Date: 13th June 2025 &bull; ISSA Accredited &bull; Faculty: Dr. Chakshu Bansal Ph.D. &amp; Prof. Krishna N. Sharma Ph.D.)</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Quick Certificate Filter Badges -->
+                  <div class="d-flex flex-wrap align-items-center gap-1 mb-3">
+                    <span class="small fw-bold text-navy me-1"><i class="bi bi-eye text-teal me-1"></i>Inspect:</span>
+                    <button type="button" class="cert-view-btn" data-bs-toggle="modal" data-bs-target="#drSudeepthaCertificatesModal" data-cert-target="#tab-cprt">
+                      <i class="bi bi-award-fill text-teal"></i> Positional Release (C.P.R.T. - UK)
+                    </button>
+                    <button type="button" class="cert-view-btn" data-bs-toggle="modal" data-bs-target="#drSudeepthaCertificatesModal" data-cert-target="#tab-taping">
+                      <i class="bi bi-award-fill text-teal"></i> Kinesiology Taping
+                    </button>
                   </div>
 
                   <p class="text-muted-custom small mb-3" style="line-height: 1.75;">
-                    Dr. Sudeeptha Meruga is a Consultant Physiotherapist and Musculoskeletal Therapist bringing over 17 years of clinical excellence in orthopaedic and musculoskeletal rehabilitation. With both her Bachelor's (BPT) and Master's Degree (MPT in Orthopaedics, awarded in First Division) from Dr. NTR University of Health Sciences, she provides specialized rehabilitation for complex joint conditions, post-operative recoveries (including knee/hip arthroplasty and ligament reconstructions), chronic osteoarthritis, and biomechanical pain syndromes.
+                    Dr. Sudeeptha Meruga is a Consultant Physiotherapist and Musculoskeletal Therapist bringing over 17 years of clinical excellence in orthopaedic and musculoskeletal rehabilitation. With her Master's Degree in Orthopaedics (MPT Orthopaedics &ndash; awarded in First Division) from Dr. NTR University of Health Sciences, she has completed specialized international certifications in <strong>Positional Release Therapy (C.P.R.T. &ndash; Physioneeds Academy, London, United Kingdom)</strong> and <strong>Kinesiology Taping (E-Physioneeds Academy)</strong>. She provides expert non-invasive neuromuscular release of painful tender points, joint decompression, neuromuscular facilitation, and targeted recovery for complex joint conditions, post-operative arthroplasty (ACL / total knee &amp; hip replacement), chronic osteoarthritis, and biomechanical pain syndromes.
                   </p>
 
                   <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="doctor-spec-pill"><i class="bi bi-check2-circle text-teal"></i> Orthopaedic Rehabilitation</span>
-                    <span class="doctor-spec-pill"><i class="bi bi-check2-circle text-teal"></i> Post-Operative Joint Care (ACL / TKR)</span>
-                    <span class="doctor-spec-pill"><i class="bi bi-check2-circle text-teal"></i> Osteoarthritis Management</span>
-                    <span class="doctor-spec-pill"><i class="bi bi-check2-circle text-teal"></i> Joint Mobilization &amp; Alignment</span>
+                    <span class="doctor-spec-pill"><i class="bi bi-patch-check-fill text-teal"></i> MPT Orthopaedics (First Division)</span>
+                    <span class="doctor-spec-pill"><i class="bi bi-patch-check-fill text-teal"></i> Positional Release Therapy (C.P.R.T. - London, UK)</span>
+                    <span class="doctor-spec-pill"><i class="bi bi-patch-check-fill text-teal"></i> Certified Kinesiology Taping Practitioner</span>
+                    <span class="doctor-spec-pill"><i class="bi bi-patch-check-fill text-teal"></i> Post-Operative Joint Care (ACL / TKR / Hip)</span>
+                    <span class="doctor-spec-pill"><i class="bi bi-patch-check-fill text-teal"></i> Osteoarthritis &amp; Degenerative Joint Care</span>
+                    <span class="doctor-spec-pill"><i class="bi bi-patch-check-fill text-teal"></i> Myofascial Pain &amp; Tender Point Release</span>
                   </div>
 
                   <div class="d-flex flex-wrap gap-2">
                     <a href="contact.html#book" class="btn btn-navy btn-sm px-3 rounded-pill btn-book-cta">
                       <i class="bi bi-calendar-event"></i> Book Consultation
                     </a>
+                    <button type="button" class="btn btn-outline-teal btn-sm px-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#drSudeepthaCertificatesModal">
+                      <i class="bi bi-file-earmark-medical-fill me-1"></i> View Verified Certificates (2)
+                    </button>
                     <a href="https://wa.me/919603726028?text=Hello%20Dr.%20Anil's%20Clinic,%20I%20would%20like%20to%20consult%20Dr.%20Sudeeptha%20Meruga." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm px-3 rounded-pill">
                       <i class="bi bi-whatsapp text-success"></i> WhatsApp Enquiry
                     </a>
@@ -1268,6 +1334,155 @@
                       <li>Rapid down-regulation of hyperactive motor reflexes and muscular spasticity.</li>
                       <li>Gentle release of deep involuntary protective muscle guarding following acute spinal trauma.</li>
                       <li>Safe, gentle neuro-sensory modulation ideal for elderly and acute pain patients.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer d-flex flex-wrap justify-content-between bg-light p-3">
+          <span class="small text-muted-custom">
+            <i class="bi bi-shield-check text-teal me-1"></i> Authenticated Clinical Records &bull; Dr. Anil's Physiotherapy &amp; Pain Relief Clinic
+          </span>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-navy rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+            <a href="contact.html#book" class="btn btn-navy rounded-pill px-4 btn-book-cta">
+              <i class="bi bi-calendar-check me-1"></i> Book Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       DR. SUDEEPTHA MERUGA - VERIFIED CERTIFICATES MODAL
+       ========================================================================== -->
+  <div class="modal fade modal-custom" id="drSudeepthaCertificatesModal" tabindex="-1" aria-labelledby="drSudeepthaCertModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header d-flex flex-wrap align-items-center justify-content-between pb-3 bg-white border-bottom">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span class="badge bg-navy px-3 py-1 rounded-pill small">Verified Credentials</span>
+              <span class="badge bg-light text-navy border small"><i class="bi bi-patch-check-fill text-teal me-1"></i>Official Accreditations</span>
+            </div>
+            <h4 class="modal-title font-heading text-navy fw-bold mb-0" id="drSudeepthaCertModalLabel">
+              Dr. Sudeeptha Meruga &ndash; Verified Clinical Certifications
+            </h4>
+            <p class="small text-muted-custom mb-0 mt-1">
+              Authenticated International Fellowships, Course Certifications &amp; Accreditations
+            </p>
+          </div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close modal"></button>
+        </div>
+
+        <div class="modal-body p-3 p-md-4">
+          <!-- Certificate Navigation Tabs -->
+          <ul class="nav nav-pills gap-2 mb-4 pb-2 border-bottom flex-nowrap overflow-x-auto" id="certTabListSudeeptha" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link cert-tab-btn active" id="tab-cprt-btn" data-bs-toggle="pill" data-bs-target="#tab-cprt" type="button" role="tab" aria-controls="tab-cprt" aria-selected="true">
+                <i class="bi bi-award-fill text-teal me-1"></i> 1. Positional Release Therapy (C.P.R.T. - UK)
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link cert-tab-btn" id="tab-taping-btn" data-bs-toggle="pill" data-bs-target="#tab-taping" type="button" role="tab" aria-controls="tab-taping" aria-selected="false">
+                <i class="bi bi-award-fill text-teal me-1"></i> 2. Kinesiology Taping (ISSA)
+              </button>
+            </li>
+          </ul>
+
+          <!-- Tab Contents -->
+          <div class="tab-content" id="certTabContentSudeeptha">
+            <!-- 1. Positional Release Therapy -->
+            <div class="tab-pane fade show active" id="tab-cprt" role="tabpanel" aria-labelledby="tab-cprt-btn">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                  <div class="cert-img-frame">
+                    <img src="assets/images/certificates/cert-positional-release-therapy-sudeeptha.jpg" alt="Certificate in Positional Release Therapy (C.P.R.T.) for M. Sudeeptha - Physioneeds Academy London, UK" class="img-fluid">
+                  </div>
+                  <div class="text-center mt-2">
+                    <a href="assets/images/certificates/cert-positional-release-therapy-sudeeptha.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-navy rounded-pill px-3">
+                      <i class="bi bi-arrows-fullscreen me-1"></i> View Full Size Image
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="cert-detail-card">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <span class="badge bg-navy px-3 py-1 rounded-pill">Physioneeds Academy UK</span>
+                      <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill small">Accredited CPD Programme</span>
+                    </div>
+                    <h4 class="fw-bold font-heading text-navy mb-2">
+                      Certificate in Positional Release Therapy (C.P.R.T.)
+                    </h4>
+                    <p class="text-teal fw-bold mb-3" style="font-size: 0.95rem;">
+                      Physioneeds Academy &bull; London, United Kingdom
+                    </p>
+
+                    <div class="d-flex flex-column gap-2 small text-muted-custom mb-3 pb-3 border-bottom">
+                      <div><strong class="text-navy">Certified Clinician:</strong> M. Sudeeptha (Dr. Sudeeptha Meruga)</div>
+                      <div><strong class="text-navy">Issuing Academy:</strong> Physioneeds Academy, London, United Kingdom</div>
+                      <div><strong class="text-navy">Certificate Number:</strong> <span class="badge bg-white text-navy border fw-bold">ZKH6F0QA</span></div>
+                      <div><strong class="text-navy">Issue Date:</strong> June 17, 2026</div>
+                      <div><strong class="text-navy">Academic Chancellor:</strong> Dr. Chakshu Bansal Ph.D.</div>
+                      <div><strong class="text-navy">Institutional Recognitions:</strong> GeM, IAF, ISO 9001:2015, QCRO, EGAC, UN DESA, ADB, MSME, Skill India &amp; International Register of Accredited Professionals</div>
+                    </div>
+
+                    <h6 class="text-navy fw-bold small text-uppercase mb-2"><i class="bi bi-check2-circle text-teal me-1"></i> Clinical Applications for Patients:</h6>
+                    <ul class="small text-muted-custom ps-3 mb-0" style="line-height: 1.6;">
+                      <li>Gentle, passive positional release of hyperactive myofascial tender points and acute muscle spasms without painful force.</li>
+                      <li>Highly effective for acute torticollis (wry neck), lumbar spasms, tension headaches, and fibromyalgia.</li>
+                      <li>Ideal for pain-sensitive, geriatric, or post-trauma patients requiring non-thrust neuromuscular relief.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Kinesiology Taping -->
+            <div class="tab-pane fade" id="tab-taping" role="tabpanel" aria-labelledby="tab-taping-btn">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                  <div class="cert-img-frame">
+                    <img src="assets/images/certificates/cert-kinesiology-taping-sudeeptha.png" alt="Online Certification in Kinesiology Taping for M. Sudeeptha - E-Physioneeds Academy" class="img-fluid">
+                  </div>
+                  <div class="text-center mt-2">
+                    <a href="assets/images/certificates/cert-kinesiology-taping-sudeeptha.png" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-navy rounded-pill px-3">
+                      <i class="bi bi-arrows-fullscreen me-1"></i> View Full Size Image
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="cert-detail-card">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <span class="badge bg-navy px-3 py-1 rounded-pill">E-Physioneeds Academy</span>
+                      <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill small">ISSA Accredited</span>
+                    </div>
+                    <h4 class="fw-bold font-heading text-navy mb-2">
+                      Online Certification Course in Kinesiology Taping
+                    </h4>
+                    <p class="text-teal fw-bold mb-3" style="font-size: 0.95rem;">
+                      E-Physioneeds Academy &bull; www.E-Physioneeds.com
+                    </p>
+
+                    <div class="d-flex flex-column gap-2 small text-muted-custom mb-3 pb-3 border-bottom">
+                      <div><strong class="text-navy">Certified Clinician:</strong> M. Sudeeptha (Dr. Sudeeptha Meruga)</div>
+                      <div><strong class="text-navy">Issuing Academy:</strong> E-Physioneeds Academy</div>
+                      <div><strong class="text-navy">Certificate Number:</strong> <span class="badge bg-white text-navy border fw-bold">WN60T7LS</span></div>
+                      <div><strong class="text-navy">Issue Date:</strong> 13th June 2025</div>
+                      <div><strong class="text-navy">Faculty &amp; Advisory Panel:</strong> Dr. Chakshu Bansal, Ph.D. (Course Instructor, Founder) &amp; Prof. Krishna N. Sharma, Ph.D. (Advisory Panel)</div>
+                      <div><strong class="text-navy">Accreditation:</strong> ISSA (International Sports Sciences Association) Accredited Course</div>
+                    </div>
+
+                    <h6 class="text-navy fw-bold small text-uppercase mb-2"><i class="bi bi-check2-circle text-teal me-1"></i> Clinical Applications for Patients:</h6>
+                    <ul class="small text-muted-custom ps-3 mb-0" style="line-height: 1.6;">
+                      <li>Dynamic neuromuscular joint support for ligament sprains, patellar tracking issues, and shoulder instability.</li>
+                      <li>Subdermal tissue decompression that improves lymphatic drainage and accelerates swelling/hematoma absorption.</li>
+                      <li>Continuous proprioceptive feedback supporting optimal posture and preventing re-injury during sports and daily activity.</li>
                     </ul>
                   </div>
                 </div>

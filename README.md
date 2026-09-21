@@ -160,6 +160,17 @@ To maintain strict healthcare compliance and prevent misinformation, unverified 
      - Bachelor of Physiotherapy (BPT), Dr. NTR UHS (March 2007, Regd. No. `0239013`, Issued 12-01-2013)
    - **Registration:** Dr. NTR University of Health Sciences Verified (P.G. Regd. No. `0843005M` | U.G. Regd. No. `0239013`)
    - **Experience:** 17+ Years Specialized Practice (MPT Orthopaedics)
+   - **Specialized Clinical Certifications & Fellowships (Authenticated):**
+     1. **Certificate in Positional Release Therapy (C.P.R.T.):**
+        - Issuing Academy: Physioneeds Academy, London, United Kingdom
+        - Certificate Number: `ZKH6F0QA` (Date of Completion: June 17, 2026)
+        - Academic Chancellor: Dr. Chakshu Bansal, Ph.D.
+        - Institutional Accreditations: GeM, IAF, ISO 9001:2015, QCRO, EGAC, UN DESA, ADB, MSME, Skill India, International Register of Accredited Professionals
+     2. **Online Certification Course in Kinesiology Taping:**
+        - Issuing Institute: E-Physioneeds Academy (www.E-Physioneeds.com)
+        - Certificate Number: `WN60T7LS` (Issue Date: 13th June 2025)
+        - Faculty: Dr. Chakshu Bansal, Ph.D. & Prof. Krishna N. Sharma, Ph.D.
+        - Accreditation: ISSA (International Sports Sciences Association) Accredited Provider
 
 ---
 
