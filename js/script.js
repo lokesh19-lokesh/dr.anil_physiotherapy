@@ -351,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Deliver form data directly to dranilsphysio@gmail.com
       const isLandingPage = window.location.pathname.toLowerCase().includes('physiotherapy_service');
       const isFileProtocol = window.location.protocol === 'file:';
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
       // Always ensure a valid email address is provided for _replyto to prevent mail server syntax rejection
       const validReplyTo = (formData.email && emailRegex.test(formData.email)) ? formData.email : 'dranilsphysio@gmail.com';
@@ -394,44 +395,94 @@ document.addEventListener('DOMContentLoaded', () => {
       // Target thank-you page with patient query parameters
       const redirectUrl = `thank-you.html?name=${encodeURIComponent(formData.name)}&service=${encodeURIComponent(formData.service)}`;
 
-      // On Web Server (Localhost or Live Production Domain), send email in the background:
-      if (!isFileProtocol) {
+      // DISPATCH FORM DATA TO dranilsphysio@gmail.com (WORKS IN ALL ENVIRONMENTS: LIVE, LOCALHOST, FILE)
+      let dispatchSuccessful = false;
+
+      // Strategy 1: If opened directly as local file (file://), try local dev server proxy first
+      if (isFileProtocol) {
+        try {
+          const localProxyRes = await fetch('http://localhost:8090/api/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(emailPayload)
+          });
+          if (localProxyRes.ok) {
+            const proxyJson = await localProxyRes.json();
+            if (proxyJson && proxyJson.message && proxyJson.message.includes('Activation')) {
+              sessionStorage.setItem('formsubmit_activation_pending', 'true');
+              console.warn('%c[FormSubmit Activation Required] Please check dranilsphysio@gmail.com and click "Activate Form" once to complete setup.', 'color: #e65100; font-weight: bold; font-size: 14px;');
+            }
+            dispatchSuccessful = true;
+          }
+        } catch (e) {
+          console.info('Local dev proxy not reachable from file://, falling back to direct dispatch.');
+        }
+      }
+
+      // Strategy 2: Direct FormSubmit dispatch to dranilsphysio@gmail.com
+      if (!dispatchSuccessful) {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 4000);
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
 
         try {
-          await fetch('https://formsubmit.co/ajax/dranilsphysio@gmail.com', {
+          const submitRes = await fetch('https://formsubmit.co/ajax/dranilsphysio@gmail.com', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
             body: JSON.stringify(emailPayload),
+            keepalive: true,
             signal: controller.signal
           });
           clearTimeout(timeoutId);
+
+          if (submitRes.ok) {
+            const resJson = await submitRes.json();
+            if (resJson && resJson.message && resJson.message.includes('Activation')) {
+              sessionStorage.setItem('formsubmit_activation_pending', 'true');
+              console.warn('%c[FormSubmit Activation Required] FormSubmit sent an activation email to dranilsphysio@gmail.com. Please click "Activate Form" in that email once.', 'color: #e65100; font-weight: bold; font-size: 14px;');
+            } else {
+              sessionStorage.removeItem('formsubmit_activation_pending');
+            }
+            dispatchSuccessful = true;
+          }
         } catch (err) {
-          console.warn('Background email dispatch notice:', err);
+          console.warn('Direct email dispatch notice:', err);
         }
       }
 
-      // Always seamlessly redirect to thank-you.html (never leaving user on third-party error pages)
-      setTimeout(() => {
-        window.location.href = redirectUrl;
-      }, 350);
+      // Strategy 3: Also log locally if running on localhost web server
+      if (isLocalhost) {
+        try {
+          fetch('/api/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(emailPayload)
+          }).catch(() => {});
+        } catch (e) {}
+      }
+
+      // Always seamlessly navigate to thank-you.html
+      window.location.href = redirectUrl;
     });
   }
 
-  // Universal Form Handler: Ensure all forms across site redirect to thank-you.html upon valid submission
-  document.addEventListener('submit', (e) => {
+  // Universal Form Handler: Ensure all forms across site send data to dranilsphysio@gmail.com and redirect
+  document.addEventListener('submit', async (e) => {
     const form = e.target;
     if (!form || form.id === 'appointmentForm' || form.tagName !== 'FORM') return;
 
     e.preventDefault();
     const nameInput = form.querySelector('input[name*="name" i], input[id*="name" i]');
     const serviceInput = form.querySelector('select[name*="service" i], select[id*="service" i], input[name*="service" i]');
+    const phoneInput = form.querySelector('input[type="tel"], input[name*="phone" i], input[name*="mobile" i]');
+    const emailInput = form.querySelector('input[type="email"], input[name*="email" i]');
+
     const name = nameInput ? nameInput.value.trim() : '';
     const service = serviceInput ? serviceInput.value.trim() : '';
+    const phone = phoneInput ? phoneInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
 
     try {
       if (name) sessionStorage.setItem('last_lead_name', name);
@@ -444,10 +495,39 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
     }
 
+    const payload = {
+      _subject: `New Lead: ${name || 'Website Inquiry'} (Dr. Anil's Clinic)`,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ? email : 'dranilsphysio@gmail.com',
+      'Name': name || 'Not Provided',
+      'Phone': phone || 'Not Provided',
+      'Service / Interest': service || 'General Consultation',
+      'Page URL': window.location.href,
+      'Submitted At (IST)': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
+
+    // Forward to FormSubmit & local server
+    try {
+      fetch('https://formsubmit.co/ajax/dranilsphysio@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(() => {});
+      if (window.location.protocol === 'file:' || window.location.hostname === 'localhost') {
+        fetch('http://localhost:8090/api/submit-form', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+      }
+    } catch (err) {}
+
     const redirectUrl = `thank-you.html?name=${encodeURIComponent(name)}&service=${encodeURIComponent(service)}`;
     setTimeout(() => {
       window.location.href = redirectUrl;
-    }, 250);
+    }, 400);
   });
 
   /* ==========================================================================

@@ -184,6 +184,13 @@
               Clinic desk in Miyapur.
             </p>
 
+            <div id="activationNotice" class="d-none alert alert-warning d-inline-flex align-items-center gap-2 text-start p-3 rounded-3 mb-4" style="max-width: 650px; font-size: 0.9rem; background-color: #FFFBEB; border: 1px solid #FDE68A; color: #92400E;">
+              <i class="bi bi-info-circle-fill fs-5 flex-shrink-0" style="color: #D97706;"></i>
+              <div>
+                <strong>One-Time Activation Required for dranilsphysio@gmail.com:</strong> FormSubmit has sent a confirmation email. Please check <code>dranilsphysio@gmail.com</code> and click the <em>"Activate Form"</em> button once to receive leads in your inbox.
+              </div>
+            </div>
+
             <div
               class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-3 bg-white rounded-4 border shadow-sm mb-4">
               <span class="badge px-3 py-2" style="background-color: #EBF6F5; color: #123B5D; font-size: 0.92rem;">
@@ -454,6 +461,11 @@
 
         if (name && confirmationEl) {
           confirmationEl.innerHTML = `Thank you, <strong>${escapeHtml(name)}</strong>! Your consultation request${service ? ` for <strong>${escapeHtml(service)}</strong>` : ''} has been submitted to Dr. Anil's clinical desk in Miyapur.`;
+        }
+
+        if (sessionStorage.getItem('formsubmit_activation_pending') === 'true') {
+          const notice = document.getElementById('activationNotice');
+          if (notice) notice.classList.remove('d-none');
         }
       } catch (err) {
         console.error(err);

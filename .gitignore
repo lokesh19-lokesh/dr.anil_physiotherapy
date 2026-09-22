@@ -1,0 +1,11 @@
+# Environment & OS
+.DS_Store
+Thumbs.db
+
+# Local runtime logs
+leads_log.json
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
