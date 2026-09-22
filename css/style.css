@@ -185,19 +185,26 @@ a:hover {
    TOP BAR & NAVIGATION
    ========================================================================== */
 .top-announcement-bar {
-  background-color: var(--color-deep-navy-dark);
-  color: #F8FAFC;
+  background: linear-gradient(90deg, #F0F7FB 0%, #E6F2F8 50%, #F0F7FB 100%);
+  color: var(--color-charcoal);
   font-size: 0.84rem;
-  padding: 0.45rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(13, 59, 102, 0.08);
 }
 
 .top-announcement-bar a {
-  color: #F8FAFC;
+  color: var(--color-deep-navy);
+  text-decoration: none;
+  transition: var(--transition-smooth);
 }
 
 .top-announcement-bar a:hover {
-  color: var(--color-warm-sand);
+  color: var(--color-primary-blue);
+}
+
+.top-announcement-bar .text-sand,
+.top-announcement-bar .text-teal {
+  color: #0d9488 !important;
 }
 
 .site-header {
@@ -2111,13 +2118,14 @@ a:hover {
    PATIENT-FIRST PRINCIPLES (VIDEO SHOWCASE & VIDEO BACKGROUND)
    ========================================================================== */
 .principles-video-section {
-  background-color: #051424;
-  color: #ffffff;
+  background-color: #F8FCFF;
+  background: linear-gradient(180deg, #F0F7FB 0%, #E6F2F8 50%, #F8FCFF 100%);
+  color: var(--color-text-dark);
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(13, 59, 102, 0.08);
+  border-bottom: 1px solid rgba(13, 59, 102, 0.08);
 }
 
 /* Background Ambient Video Layer */
@@ -2142,8 +2150,8 @@ a:hover {
   height: auto;
   transform: translate(-50%, -50%) scale(1.18);
   object-fit: cover;
-  opacity: 0.24;
-  filter: blur(20px) saturate(1.25);
+  opacity: 0.06;
+  filter: blur(20px) saturate(1.1);
 }
 
 .principles-bg-overlay {
@@ -2152,7 +2160,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 30% 45%, rgba(15, 45, 74, 0.55) 0%, rgba(6, 20, 36, 0.88) 55%, rgba(3, 10, 18, 0.97) 100%);
+  background: radial-gradient(circle at 30% 45%, rgba(230, 242, 248, 0.82) 0%, rgba(240, 247, 251, 0.92) 55%, rgba(248, 252, 255, 0.98) 100%);
 }
 
 /* Video Showcase Card on Left */
@@ -2291,38 +2299,35 @@ a:hover {
   line-height: 1.4;
 }
 
-/* Dark Eyebrow Badge */
+/* Dark Eyebrow Badge fallback & light version */
 .eyebrow-badge-dark {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #f7dfb9;
-  border: 1.5px solid rgba(198, 159, 104, 0.4);
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(20, 184, 166, 0.12);
+  color: var(--color-deep-navy);
+  border: 1.5px solid rgba(20, 184, 166, 0.35);
+  box-shadow: 0 2px 10px rgba(15, 45, 74, 0.05);
 }
 
 .eyebrow-badge-dark i {
-  color: #4ecdc4;
+  color: #0d9488;
 }
 
 .principles-heading {
   font-size: clamp(2rem, 3vw, 2.65rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
+  color: var(--color-deep-navy) !important;
 }
 
 .principles-lead-text {
-  color: #cbd5e1;
+  color: var(--color-muted-gray);
   font-size: 1.05rem;
   line-height: 1.68;
 }
 
-/* 2x2 Glassmorphic Cards */
+/* 2x2 Feature Cards */
 .principles-glass-card {
-  background: rgba(255, 255, 255, 0.045);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(13, 59, 102, 0.09);
   border-radius: 20px;
   padding: 1.85rem 1.6rem;
   height: 100%;
@@ -2332,9 +2337,8 @@ a:hover {
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(13, 59, 102, 0.05);
 }
 
 .principles-glass-card::before {
@@ -2343,17 +2347,17 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.6), transparent);
+  height: 3px;
+  background: linear-gradient(90deg, #14B8A6, #0EA5E9);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .principles-glass-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(78, 205, 196, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 25px rgba(37, 112, 112, 0.2);
+  background: #FFFFFF;
+  border-color: rgba(20, 184, 166, 0.45);
+  box-shadow: 0 18px 40px rgba(13, 59, 102, 0.10);
 }
 
 .principles-glass-card:hover::before {
@@ -2364,9 +2368,9 @@ a:hover {
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: rgba(37, 112, 112, 0.24);
-  border: 1px solid rgba(78, 205, 196, 0.3);
-  color: #4ecdc4;
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.25);
+  color: #0d9488;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2379,19 +2383,19 @@ a:hover {
   background: var(--color-soft-teal);
   color: #ffffff;
   transform: scale(1.08);
-  box-shadow: 0 6px 18px rgba(37, 112, 112, 0.45);
+  box-shadow: 0 6px 18px rgba(20, 184, 166, 0.35);
 }
 
 .principles-card-title {
   font-size: 1.18rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-deep-navy);
   margin-bottom: 0.6rem;
 }
 
 .principles-card-desc {
-  font-size: 0.93rem;
-  color: #cbd5e1;
+  font-size: 0.94rem;
+  color: #4B5563;
   line-height: 1.62;
   margin-bottom: 0;
 }
@@ -2465,13 +2469,14 @@ a:hover {
    THE CLINICAL DIFFERENCE (VIDEO SHOWCASE RIGHT & VIDEO BACKGROUND)
    ========================================================================== */
 .clinical-difference-section {
-  background-color: #060a16;
-  color: #ffffff;
+  background-color: #F8FCFF;
+  background: linear-gradient(180deg, #F8FCFF 0%, #EFF6FC 50%, #F4F8FD 100%);
+  color: var(--color-text-dark);
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(13, 59, 102, 0.08);
+  border-bottom: 1px solid rgba(13, 59, 102, 0.08);
 }
 
 /* Background Ambient Video Layer */
@@ -2496,8 +2501,8 @@ a:hover {
   height: auto;
   transform: translate(-50%, -50%) scale(1.18);
   object-fit: cover;
-  opacity: 0.22;
-  filter: blur(22px) saturate(1.3);
+  opacity: 0.05;
+  filter: blur(22px) saturate(1.1);
 }
 
 .clinical-bg-overlay {
@@ -2506,7 +2511,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 75% 42%, rgba(68, 20, 95, 0.45) 0%, rgba(10, 18, 36, 0.88) 55%, rgba(4, 8, 16, 0.97) 100%);
+  background: radial-gradient(circle at 75% 42%, rgba(235, 243, 251, 0.85) 0%, rgba(242, 248, 253, 0.92) 55%, rgba(248, 252, 255, 0.98) 100%);
 }
 
 /* Video Showcase Card on Right */
@@ -2635,20 +2640,19 @@ a:hover {
   font-size: clamp(2rem, 2.8vw, 2.6rem);
   line-height: 1.22;
   letter-spacing: -0.02em;
+  color: var(--color-deep-navy) !important;
 }
 
 .clinical-lead-text {
-  color: #cbd5e1;
+  color: var(--color-muted-gray);
   font-size: 1.02rem;
   line-height: 1.68;
 }
 
 /* Feature Cards on Left */
 .clinical-diff-card {
-  background: rgba(255, 255, 255, 0.045);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(13, 59, 102, 0.09);
   border-radius: 18px;
   padding: 1.5rem 1.4rem;
   height: 100%;
@@ -2658,9 +2662,8 @@ a:hover {
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(13, 59, 102, 0.05);
 }
 
 .clinical-diff-card::before {
@@ -2669,17 +2672,17 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.6), rgba(56, 189, 248, 0.6), transparent);
+  height: 3px;
+  background: linear-gradient(90deg, #9333EA, #0EA5E9);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .clinical-diff-card:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(168, 85, 247, 0.45);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35), 0 0 22px rgba(168, 85, 247, 0.22);
+  background: #FFFFFF;
+  border-color: rgba(147, 51, 234, 0.4);
+  box-shadow: 0 16px 36px rgba(13, 59, 102, 0.10);
 }
 
 .clinical-diff-card:hover::before {
@@ -2690,9 +2693,9 @@ a:hover {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(168, 85, 247, 0.18);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  color: #c084fc;
+  background: rgba(147, 51, 234, 0.1);
+  border: 1px solid rgba(147, 51, 234, 0.22);
+  color: #9333ea;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2705,19 +2708,19 @@ a:hover {
   background: #9333ea;
   color: #ffffff;
   transform: scale(1.08);
-  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.4);
+  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.35);
 }
 
 .clinical-diff-title {
   font-size: 1.12rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-deep-navy);
   margin-bottom: 0.45rem;
 }
 
 .clinical-diff-desc {
   font-size: 0.88rem;
-  color: #cbd5e1;
+  color: #4B5563;
   line-height: 1.58;
   margin-bottom: 0;
 }
