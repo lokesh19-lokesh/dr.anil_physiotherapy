@@ -1,0 +1,156 @@
+# ==============================================================================
+# Dr. Anil's Physiotherapy & Pain Relief Clinic - Apache Production Configuration
+# Clean URLs (Hide .html), HTTPS Enforcement, Performance Caching & Security
+# ==============================================================================
+
+# Prevent directory listings and disable MultiViews for explicit rewrite control
+Options -Indexes -MultiViews +FollowSymLinks
+
+# Set default character encoding
+AddDefaultCharset UTF-8
+
+# Default document
+DirectoryIndex index.html
+
+# ------------------------------------------------------------------------------
+# 1. URL REWRITING ENGINE (CLEAN EXTENSIONLESS URLS)
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # A. Force HTTPS (Uncomment below if SSL is active and not forced at DNS/CDN level)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # B. Canonicalize Home: Redirect direct requests for /index.html and /index to /
+    RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s\?] [NC]
+    RewriteRule ^(index(\.html)?)?$ / [R=301,L]
+
+    # C. Remove trailing slashes from non-directory URLs (e.g. /about/ -> /about)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{THE_REQUEST} \s/+(.+?)/+[\s\?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # D. External 301 Redirect: Direct requests to /page.html redirect to /page
+    # Uses %{THE_REQUEST} to prevent redirect loops during internal rewrite cycles
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s\?] [NC]
+    RewriteCond %1 !^index$ [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # E. PPC Landing Page Alias (Case-insensitive support for Physiotherapy_service.html)
+    RewriteRule ^physiotherapy[-_]service/?$ Physiotherapy_service.html [NC,L]
+
+    # F. Internal Rewrite: Map extensionless URL (e.g. /about) to .html file behind the scenes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^([^.]+)$ $1.html [L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 2. CUSTOM ERROR DOCUMENTS
+# ------------------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ------------------------------------------------------------------------------
+# 3. SECURITY & ACCESS RESTRICTIONS
+# ------------------------------------------------------------------------------
+# Protect hidden files and directories (e.g., .git, .env)
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Protect backend logs, python scripts, and lead databases from public access
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op]|py|json))$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# HTTP Security Headers
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Frame protection against clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Cross-site scripting (XSS) filter
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Referrer policy for privacy and security
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 4. GZIP / BROTLI COMPRESSION (PAGE SPEED & CWV OPTIMIZATION)
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 5. BROWSER CACHING (LEVERAGE BROWSER CACHE FOR STATIC ASSETS)
+# ------------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML Documents: short cache to ensure timely updates
+    ExpiresByType text/html "access plus 1 hour"
+
+    # CSS & JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+
+    # Images & Favicons
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Web Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>

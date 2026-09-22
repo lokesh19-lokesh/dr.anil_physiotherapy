@@ -18,6 +18,42 @@ PORT = 8090
 LEADS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leads_log.json')
 
 class EnhancedHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def translate_path(self, path):
+        # Clean path from query and fragment
+        clean_path = path.split('?', 1)[0].split('#', 1)[0]
+        root = os.path.dirname(os.path.abspath(__file__))
+        rel = clean_path.lstrip('/')
+
+        # Support case-insensitive PPC landing page
+        if rel.lower() in ('physiotherapy_service', 'physiotherapy-service'):
+            return os.path.join(root, 'Physiotherapy_service.html')
+
+        translated = super().translate_path(path)
+        # If file doesn't exist but [file].html exists, serve that
+        if not os.path.exists(translated) and os.path.exists(translated + '.html'):
+            return translated + '.html'
+        return translated
+
+    def do_GET(self):
+        # Canonical redirect: redirect .html to clean extensionless URL (mirrors .htaccess)
+        clean_path = self.path.split('?', 1)[0].split('#', 1)[0]
+        query_suffix = ('?' + self.path.split('?', 1)[1]) if '?' in self.path else ''
+
+        if clean_path in ('/index.html', '/index'):
+            self.send_response(301)
+            self.send_header('Location', '/' + (query_suffix if query_suffix else ''))
+            self.end_headers()
+            return
+
+        if clean_path.endswith('.html') and not clean_path.endswith('/index.html'):
+            target = clean_path[:-5] + query_suffix
+            self.send_response(301)
+            self.send_header('Location', target)
+            self.end_headers()
+            return
+
+        super().do_GET()
+
     def end_headers(self):
         # Enable CORS for local testing from any origin (including file://)
         self.send_header('Access-Control-Allow-Origin', '*')
