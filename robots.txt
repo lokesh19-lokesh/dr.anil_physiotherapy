@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dranilsphysiotherapy.com/sitemap.xml
+Sitemap: https://dranilphysiocare.com/sitemap.xml
