@@ -99,11 +99,11 @@ Events monitored out of the box:
 ### How to Connect Verification IDs:
 In `js/script.js`, replace the placeholder comment section:
 ```javascript
-// GA4 Measurement ID: [ADD VERIFIED ID]
-// Google Tag Manager ID: [ADD VERIFIED ID]
+// GA4 Measurement ID: G-LG5P1H8548
+// Google Tag Manager ID: GTM-NV4THXWF
 // Google Ads Conversion ID: [ADD VERIFIED ID]
 // Google Ads Conversion Label: [ADD VERIFIED LABEL]
-// Meta Pixel ID: [ADD VERIFIED ID]
+// Meta Pixel ID: 1884537529625614
 ```
 Add your GTM or GA4/Google Ads snippet into `<head>` of each HTML page.
 

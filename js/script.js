@@ -19,7 +19,7 @@
    - Google Tag Manager ID: GTM-NV4THXWF
    - Google Ads Conversion ID: [ADD VERIFIED ID]
    - Google Ads Conversion Label: [ADD VERIFIED LABEL]
-   - Meta Pixel ID: [ADD VERIFIED ID]
+   - Meta Pixel ID: 1884537529625614
    
    To connect:
    1. Replace placeholders above in your tag manager / snippet.
