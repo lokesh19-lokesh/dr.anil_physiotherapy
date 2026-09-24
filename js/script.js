@@ -14,9 +14,9 @@
    1. ANALYTICS & ADS TRACKING DISPATCHER
    ==========================================================================
    
-   TRACKING PLACEHOLDERS FOR VERIFIED IDS:
-   - GA4 Measurement ID: [ADD VERIFIED ID]
-   - Google Tag Manager ID: [ADD VERIFIED ID]
+   TRACKING CONFIGURATION FOR VERIFIED IDS:
+   - GA4 Measurement ID: G-LG5P1H8548
+   - Google Tag Manager ID: GTM-NV4THXWF
    - Google Ads Conversion ID: [ADD VERIFIED ID]
    - Google Ads Conversion Label: [ADD VERIFIED LABEL]
    - Meta Pixel ID: [ADD VERIFIED ID]
