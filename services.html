@@ -94,7 +94,15 @@
         "name": "Physiotherapy Services at Dr. Anil's Clinic",
         "description": "Comprehensive physiotherapy, osteopathy, and pain relief services in Miyapur, Hyderabad.",
         "isPartOf": { "@id": "https://dranilphysiocare.com/#website" },
-        "about": { "@id": "https://dranilphysiocare.com/#clinic" }
+        "about": { "@id": "https://dranilphysiocare.com/#clinic" },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "#services-hero-title",
+            ".services-lead-text",
+            "#services-faq-heading"
+          ]
+        }
       },
       {
         "@type": ["PhysiotherapyClinic", "MedicalClinic", "LocalBusiness"],
@@ -107,6 +115,27 @@
         "priceRange": "₹₹",
         "currenciesAccepted": "INR",
         "paymentAccepted": "Cash, UPI, Google Pay, PhonePe, Paytm, Credit Card, Debit Card",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "150",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "knowsAbout": [
+          "Spine & Neck Pain Physiotherapy",
+          "Non-Surgical Sciatica Treatment",
+          "Osteopathy & Diversified Chiropractic Spine Manipulation",
+          "Advanced Biomechanical Corrections (ABC Level-3)",
+          "Certified Dry Needling Therapy (CSTA)",
+          "Knee Osteoarthritis Joint Preservation",
+          "Sports Injury Rehabilitation",
+          "ACL Ligament Tear Recovery",
+          "Positional Release Therapy (PRT)",
+          "Kinesiology Taping",
+          "Post-Surgical Orthopedic Rehabilitation",
+          "Frozen Shoulder Mobilization"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet",
@@ -199,6 +228,60 @@
             }
           ]
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://dranilphysiocare.com/services.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many physiotherapy sessions are typically required for recovery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The number of sessions depends on condition chronicity. Acute neck or back muscle strains typically recover in 3 to 6 sessions. Moderate disc issues, sciatica, or ligament sprains generally need 8 to 12 sessions. Chronic osteoarthritis and post-surgical rehabilitation require 12 to 20 structured sessions with active progressive home conditioning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can severe back pain, slip disc, and sciatica be treated without surgery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Over 90% of lumbar disc protrusions, sciatica, and chronic back pain cases respond successfully to Dr. Anil's conservative protocol. Combining osteopathic decompression, certified dry needling, directional exercises, and core stabilization relieves nerve compression and avoids surgical intervention."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is ABC Level-3 Osteopathic & Chiropractic Spine Manipulation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Advanced Biomechanical Corrections (ABC Level-3) is a specialized, gentle hands-on technique that assesses and realigns spinal vertebrae and peripheral joints along their anatomical axes. It relieves nerve impingement, restores natural joint gliding, and normalizes posture without forceful trauma."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Certified Dry Needling differ from traditional acupuncture?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While acupuncture is based on traditional energy meridians, dry needling is an evidence-based Western medical technique. Dr. Anil uses sterile, ultra-fine filament needles inserted directly into hyperirritable myofascial trigger points (muscle knots), eliciting an immediate local twitch response that resets chronic muscle tightness and eliminates deep referred pain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a doctor's prescription or recent MRI before visiting Dr. Anil's clinic in Miyapur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No prescription or referral is needed. Patients can directly book a comprehensive 1-on-1 assessment. If you already have MRI reports, X-rays, or orthopedic notes, bringing them helps our consultants formulate your recovery roadmap faster."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can physiotherapy help avoid total knee replacement (TKR) for knee osteoarthritis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In Grade 1 to 3 knee osteoarthritis, targeted physiotherapy—including unloaded joint distraction, quadriceps strengthening, patellar mobilization, and synovial fluid stimulation—significantly reduces pain and improves walking distance, frequently delaying or preventing the need for knee replacement surgery."
+            }
+          }
+        ]
       }
     ]
   }
@@ -715,6 +798,131 @@
                 Continuous milestone assessments, exercise adjustments, and self-care transition strategies for lasting
                 movement health.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES FAQ & CLINICAL AEO SECTION
+         ========================================================================== -->
+    <section class="section-padding bg-light-subtle" id="faq" aria-labelledby="services-faq-heading">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-8">
+            <div class="eyebrow-badge mb-2">
+              <i class="bi bi-question-circle"></i> QUICK CLINICAL ANSWERS
+            </div>
+            <h2 id="services-faq-heading" class="display-6 fw-bold text-navy">
+              Frequently Asked Questions About Our Treatments
+            </h2>
+            <p class="text-muted-custom services-lead-text">
+              Direct, evidence-informed answers to common questions about physiotherapy, non-surgical spine decompression, dry needling, and recovery timelines in Miyapur.
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="accordion accordion-custom" id="servicesFaqAccordion">
+
+              <!-- FAQ 1 -->
+              <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+                <h3 class="accordion-header" id="headingOne">
+                  <button class="accordion-button fw-bold text-navy collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="bi bi-calendar-range text-teal me-2"></i> How many physiotherapy sessions are typically required for recovery?
+                  </button>
+                </h3>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#servicesFaqAccordion">
+                  <div class="accordion-body text-muted-custom">
+                    The number of sessions depends on condition chronicity. Acute muscle strains typically recover in <strong>3 to 6 sessions</strong>. Moderate disc issues, sciatica, or ligament sprains generally need <strong>8 to 12 sessions</strong>. Chronic osteoarthritis and post-surgical rehabilitation require <strong>12 to 20 structured sessions</strong> with progressive home conditioning.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 2 -->
+              <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+                <h3 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button fw-bold text-navy collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="bi bi-shield-check text-teal me-2"></i> Can severe back pain, slip disc, and sciatica be treated without surgery?
+                  </button>
+                </h3>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#servicesFaqAccordion">
+                  <div class="accordion-body text-muted-custom">
+                    <strong>Yes.</strong> Over 90% of lumbar disc protrusions, sciatica, and chronic back pain cases respond successfully to Dr. Anil's conservative protocol. Combining osteopathic decompression, certified dry needling, directional exercise therapy, and deep core stabilization relieves nerve compression and avoids invasive surgery.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+                <h3 class="accordion-header" id="headingThree">
+                  <button class="accordion-button fw-bold text-navy collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="bi bi-activity text-teal me-2"></i> What is ABC Level-3 Osteopathic &amp; Chiropractic Spine Manipulation?
+                  </button>
+                </h3>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#servicesFaqAccordion">
+                  <div class="accordion-body text-muted-custom">
+                    Advanced Biomechanical Corrections (ABC Level-3) is a specialized, gentle hands-on technique that assesses and realigns spinal vertebrae and peripheral joints along their anatomical axes. It relieves nerve impingement, restores natural joint gliding, and normalizes posture without forceful trauma.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 4 -->
+              <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+                <h3 class="accordion-header" id="headingFour">
+                  <button class="accordion-button fw-bold text-navy collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <i class="bi bi-pin text-teal me-2"></i> How does Certified Dry Needling differ from traditional acupuncture?
+                  </button>
+                </h3>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#servicesFaqAccordion">
+                  <div class="accordion-body text-muted-custom">
+                    While acupuncture is based on traditional energy meridians, dry needling is an evidence-based Western medical technique. Dr. Anil uses sterile, ultra-fine filament needles inserted directly into hyperirritable myofascial trigger points (muscle knots), eliciting an immediate local twitch response that resets chronic muscle tightness and eliminates deep referred pain.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 5 -->
+              <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+                <h3 class="accordion-header" id="headingFive">
+                  <button class="accordion-button fw-bold text-navy collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <i class="bi bi-file-medical text-teal me-2"></i> Do I need a doctor's prescription or recent MRI before visiting?
+                  </button>
+                </h3>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#servicesFaqAccordion">
+                  <div class="accordion-body text-muted-custom">
+                    <strong>No doctor's referral is required.</strong> Patients have direct access to physiotherapy evaluations at our clinic. If you already have recent MRI scans, X-rays, or medical prescriptions, bringing them helps our consultants formulate your recovery roadmap faster.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 6 -->
+              <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden">
+                <h3 class="accordion-header" id="headingSix">
+                  <button class="accordion-button fw-bold text-navy collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <i class="bi bi-heart-pulse text-teal me-2"></i> Can physiotherapy help avoid total knee replacement (TKR)?
+                  </button>
+                </h3>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                  data-bs-parent="#servicesFaqAccordion">
+                  <div class="accordion-body text-muted-custom">
+                    In Grade 1 to 3 knee osteoarthritis, targeted physiotherapy—including unloaded joint distraction, quadriceps strengthening, patellar mobilization, and synovial fluid stimulation—significantly reduces pain and improves walking distance, frequently delaying or preventing the need for knee replacement surgery.
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

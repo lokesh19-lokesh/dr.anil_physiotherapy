@@ -93,7 +93,15 @@
         "name": "Contact Dr. Anil's Physiotherapy and Pain Relief Clinic",
         "description": "Appointment enquiry and contact details for Dr. Anil's clinic in Miyapur, Hyderabad.",
         "isPartOf": { "@id": "https://dranilphysiocare.com/#website" },
-        "about": { "@id": "https://dranilphysiocare.com/#clinic" }
+        "about": { "@id": "https://dranilphysiocare.com/#clinic" },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "#contact-hero-title",
+            "#form-heading",
+            ".contact-info-card"
+          ]
+        }
       },
       {
         "@type": ["PhysiotherapyClinic", "MedicalClinic", "LocalBusiness"],
@@ -106,6 +114,19 @@
         "priceRange": "₹₹",
         "currenciesAccepted": "INR",
         "paymentAccepted": "Cash, UPI, Google Pay, PhonePe, Paytm, Credit Card, Debit Card",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "150",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "knowsAbout": [
+          "Physiotherapy in Miyapur",
+          "Orthopedic Rehabilitation",
+          "Non-Surgical Pain Relief",
+          "Sports Injury Care"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Old Police Station Road, Opp. Canara Bank, Beside Saiteja Hospital, Nandini Nagar, Ambedkar Nagar, Hafeezpet",
