@@ -34,5 +34,5 @@ Allow: /
 
 # Canonical Sitemaps & LLM Knowledge Files
 Sitemap: https://dranilphysiocare.com/sitemap.xml
-llms-txt: https://dranilphysiocare.com/llms.txt
-llms-full-txt: https://dranilphysiocare.com/llms-full.txt
+# LLMs Index: https://dranilphysiocare.com/llms.txt
+# LLMs Full Context: https://dranilphysiocare.com/llms-full.txt
