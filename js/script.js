@@ -175,6 +175,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Smooth scrolling for in-page anchors (e.g. #book), working reliably even when hash already exists
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      if (this.hasAttribute('data-bs-toggle') || this.hasAttribute('data-bs-target')) return;
+      const hash = this.getAttribute('href');
+      if (hash && hash.length > 1) {
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', hash);
+          } else {
+            window.location.hash = hash;
+          }
+        }
+      }
+    });
+  });
+
   // Close mobile navigation menu on nav-link click
   const navCollapse = document.getElementById('navbarMainMenu');
   if (navCollapse) {
